@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>org.seedstack.intellij</id>
+    <name>SeedStack</name>
+    <version>1.0.0</version>
+    <vendor email="adrien.lauer@gmail.com" url="http://seedstack.org">seedstack.org</vendor>
+
+    <description><![CDATA[
+      SeedStack configuration plugin.
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Initial version.
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>com.intellij.properties</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <framework.type implementation="org.seedstack.intellij.SeedStackFramework"/>
+        <fileTypeFactory implementation="org.seedstack.intellij.config.yaml.CoffigYAMLFileTypeFactory"/>
+        <lang.parserDefinition language="coffig/yaml" implementationClass="org.seedstack.intellij.config.yaml.CoffigYAMLParserDefinition"/>
+        <annotator language="coffig/yaml" implementationClass="org.seedstack.intellij.config.annotator.CoffigAnnotator"/>
+        <lang.documentationProvider language="coffig/yaml" implementationClass="org.seedstack.intellij.config.documentation.CoffigDocumentationProvider"/>
+        <codeInsight.lineMarkerProvider language="coffig/yaml" implementationClass="org.seedstack.intellij.config.marker.CoffigLineMarkerProvider"/>
+        <lang.findUsagesProvider language="yaml" implementationClass="org.seedstack.intellij.config.usage.CoffigFindUsagesProvider"/>
+        <completion.contributor language="yaml" implementationClass="org.seedstack.intellij.config.completion.CoffigCompletionContributor"/>
+        <psi.referenceContributor implementation="org.seedstack.intellij.config.reference.CoffigReferenceContributor"/>
+    </extensions>
+</idea-plugin>

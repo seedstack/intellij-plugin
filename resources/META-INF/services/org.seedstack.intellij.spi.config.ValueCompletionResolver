@@ -1,0 +1,3 @@
+org.seedstack.intellij.config.completion.value.ClassCompletionResolver
+org.seedstack.intellij.config.completion.value.BooleanCompletionResolver
+org.seedstack.intellij.config.completion.value.EnumCompletionResolver
