@@ -47,7 +47,7 @@ public class CoffigLineMarkerProvider extends RelatedItemLineMarkerProvider {
                     if (nameIdentifier != null) {
                         NavigationGutterIconBuilder<PsiElement> builder = NavigationGutterIconBuilder
                                 .create(SeedStackIcons.LOGO)
-                                .setTargets(nameIdentifier)
+                                .setTargets(nameIdentifier.getNavigationElement())
                                 .setTooltipText("Navigate to configuration class");
                         result.add(builder.createLineMarkerInfo(element));
                     }

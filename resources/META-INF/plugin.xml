@@ -27,16 +27,18 @@
         <framework.type implementation="org.seedstack.intellij.SeedStackFramework"/>
 
         <!-- YAML config -->
-        <fileTypeFactory implementation="org.seedstack.intellij.config.yaml.CoffigYAMLFileTypeFactory"/>
-        <lang.parserDefinition language="coffig/yaml" implementationClass="org.seedstack.intellij.config.yaml.CoffigYAMLParserDefinition"/>
+        <fileTypeFactory implementation="org.seedstack.intellij.config.yaml.CoffigYamlFileTypeFactory"/>
+        <lang.parserDefinition language="coffig/yaml" implementationClass="org.seedstack.intellij.config.yaml.CoffigYamlParserDefinition"/>
         <lang.documentationProvider language="coffig/yaml" implementationClass="org.seedstack.intellij.config.documentation.CoffigDocumentationProvider"/>
         <codeInsight.lineMarkerProvider language="coffig/yaml" implementationClass="org.seedstack.intellij.config.marker.CoffigLineMarkerProvider"/>
         <lang.findUsagesProvider language="yaml" implementationClass="org.seedstack.intellij.config.usage.CoffigFindUsagesProvider"/>
         <completion.contributor language="yaml" implementationClass="org.seedstack.intellij.config.completion.CoffigCompletionContributor"/>
         <lang.refactoringSupport language="yaml" implementationClass="org.seedstack.intellij.config.refactor.CoffigRefactoringSupportProvider"/>
+        <annotator language="yaml" implementationClass="org.seedstack.intellij.config.annotator.CoffigYamlAnnotator"/>
+        <psi.referenceContributor language="yaml" implementation="org.seedstack.intellij.config.reference.CoffigYamlReferenceContributor"/>
 
         <!-- For JAVA language -->
-        <psi.referenceContributor language="JAVA" implementation="org.seedstack.intellij.config.reference.CoffigReferenceContributor"/>
-        <annotator language="JAVA" implementationClass="org.seedstack.intellij.config.annotator.CoffigAnnotator"/>
+        <psi.referenceContributor language="JAVA" implementation="org.seedstack.intellij.config.reference.CoffigJavaReferenceContributor"/>
+        <annotator language="JAVA" implementationClass="org.seedstack.intellij.config.annotator.CoffigJavaAnnotator"/>
     </extensions>
 </idea-plugin>

@@ -16,7 +16,7 @@ import java.util.Set;
 import static org.seedstack.intellij.config.util.CoffigUtil.isCoffigMethod;
 import static org.seedstack.intellij.config.util.CoffigUtil.isLiteralOfConfigurationAnnotation;
 
-public class CoffigAnnotator implements Annotator {
+public class CoffigJavaAnnotator implements Annotator {
     @Override
     public void annotate(@NotNull PsiElement psiElement, @NotNull AnnotationHolder annotationHolder) {
         if (psiElement instanceof PsiLiteralExpression) {

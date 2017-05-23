@@ -18,14 +18,14 @@ import java.util.List;
 /**
  * @author oleg
  */
-class CoffigYAMLFileImpl extends PsiFileBase implements YAMLFile {
-    CoffigYAMLFileImpl(FileViewProvider viewProvider) {
-        super(viewProvider, CoffigYAMLLanguage.INSTANCE);
+class CoffigYamlFileImpl extends PsiFileBase implements YAMLFile {
+    CoffigYamlFileImpl(FileViewProvider viewProvider) {
+        super(viewProvider, CoffigYamlLanguage.INSTANCE);
     }
 
     @NotNull
     public FileType getFileType() {
-        return CoffigYAMLFileType.INSTANCE;
+        return CoffigYamlFileType.INSTANCE;
     }
 
     @Override

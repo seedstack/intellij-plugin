@@ -6,6 +6,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.codeInsight.completion.CompletionType;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
+import com.intellij.openapi.util.TextRange;
 import com.intellij.patterns.PlatformPatterns;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.impl.source.tree.LeafPsiElement;
@@ -20,6 +21,8 @@ import org.jetbrains.yaml.psi.YAMLMapping;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static org.seedstack.intellij.config.util.CoffigUtil.extractMacroReference;
+import static org.seedstack.intellij.config.util.CoffigUtil.getMacroOffsets;
 import static org.seedstack.intellij.config.util.CoffigUtil.isConfigFile;
 import static org.seedstack.intellij.config.util.CoffigUtil.resolvePath;
 
@@ -34,8 +37,6 @@ public class CoffigCompletionContributor extends CompletionContributor {
     }
 
     private static class DispatchingProvider extends CompletionProvider<CompletionParameters> {
-        private static final String MACRO_START = "${";
-        private static final String MACRO_END = "}";
         private static final KeyCompletionProvider KEY_COMPLETION_PROVIDER = new KeyCompletionProvider();
         private static final ValueCompletionProvider VALUE_COMPLETION_PROVIDER = new ValueCompletionProvider();
 
@@ -58,11 +59,16 @@ public class CoffigCompletionContributor extends CompletionContributor {
             }
             // Completion for YAML values
             else if (isValue(position)) {
-                String prefix = completionResultSet.getPrefixMatcher().getPrefix();
-                if (isInsideMacro(prefix)) {
-                    MacroInfo macroInfo = resolveMacroInfo(prefix, completionResultSet);
-                    completionResultSet = macroInfo.completionResultSet;
-                    stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, position);
+                PsiElement originalPosition = completionParameters.getOriginalPosition();
+                if (originalPosition != null) {
+                    TextRange textRange = originalPosition.getTextRange();
+                    int endOffset = textRange.getEndOffset() - textRange.getStartOffset();
+                    Optional<int[]> macroOffsets = getMacroOffsets(originalPosition.getText(), endOffset);
+                    if (macroOffsets.isPresent()) {
+                        MacroInfo macroInfo = resolveMacroInfo(originalPosition.getText(), macroOffsets.get(), completionResultSet);
+                        completionResultSet = macroInfo.completionResultSet;
+                        stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, position);
+                    }
                 } else {
                     stream = VALUE_COMPLETION_PROVIDER.resolve(resolvePath(position), position);
                 }
@@ -74,8 +80,8 @@ public class CoffigCompletionContributor extends CompletionContributor {
             }
         }
 
-        private MacroInfo resolveMacroInfo(String prefix, CompletionResultSet completionResultSet) {
-            String reference = prefix.substring(prefix.lastIndexOf(MACRO_START) + MACRO_START.length());
+        private MacroInfo resolveMacroInfo(String value, int[] macroOffsets, CompletionResultSet completionResultSet) {
+            String reference = extractMacroReference(value, macroOffsets);
             int lastDotIndex = reference.lastIndexOf(".");
             String path;
             if (reference.isEmpty()) {
@@ -95,18 +101,14 @@ public class CoffigCompletionContributor extends CompletionContributor {
         }
 
 
-        public static boolean isKey(PsiElement position) {
+        private boolean isKey(PsiElement position) {
             PsiElement parentContext = position.getParent().getContext();
             PsiElement leftContext = Optional.ofNullable(position.getContext()).map(PsiElement::getPrevSibling).orElse(null);
             return parentContext instanceof YAMLMapping || parentContext instanceof YAMLDocument || leftContext != null && ((LeafPsiElement) leftContext).getElementType() == YAMLTokenTypes.INDENT;
         }
 
-        public static boolean isValue(PsiElement position) {
+        private boolean isValue(PsiElement position) {
             return position.getParent().getContext() instanceof YAMLKeyValue;
-        }
-
-        private boolean isInsideMacro(String prefix) {
-            return prefix.lastIndexOf(MACRO_START) > prefix.lastIndexOf(MACRO_END);
         }
 
         private static class MacroInfo {

@@ -5,9 +5,9 @@ import com.intellij.openapi.fileTypes.FileTypeConsumer;
 import com.intellij.openapi.fileTypes.FileTypeFactory;
 import org.jetbrains.annotations.NotNull;
 
-public class CoffigYAMLFileTypeFactory extends FileTypeFactory {
+public class CoffigYamlFileTypeFactory extends FileTypeFactory {
     @Override
     public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer) {
-        fileTypeConsumer.consume(CoffigYAMLFileType.INSTANCE, new ExactFileNameMatcher("application.yaml"), new ExactFileNameMatcher("application.yml"));
+        fileTypeConsumer.consume(CoffigYamlFileType.INSTANCE, new ExactFileNameMatcher("application.yaml"), new ExactFileNameMatcher("application.yml"));
     }
 }

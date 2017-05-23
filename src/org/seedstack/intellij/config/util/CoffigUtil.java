@@ -15,8 +15,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.yaml.psi.YAMLDocument;
 import org.jetbrains.yaml.psi.YAMLFile;
 import org.jetbrains.yaml.psi.YAMLKeyValue;
+import org.jetbrains.yaml.psi.YAMLMapping;
 import org.jetbrains.yaml.psi.YAMLPsiElement;
-import org.seedstack.intellij.config.yaml.CoffigYAMLFileType;
+import org.seedstack.intellij.config.yaml.CoffigYamlFileType;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Stack;
 
 public final class CoffigUtil {
     private static final String CONFIGURATION_ANNOTATION_QNAME = "org.seedstack.seed.Configuration";
@@ -63,6 +65,27 @@ public final class CoffigUtil {
                 .isPresent();
     }
 
+    public static Optional<int[]> getMacroOffsets(String text, int position) {
+        char[] charArray = text.toCharArray();
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < charArray.length && i < position; i++) {
+            if (i + 1 < charArray.length && charArray[i] == '$' && charArray[i + 1] == '{') {
+                stack.push(i);
+            } else if (charArray[i] == '}') {
+                stack.pop();
+            }
+        }
+        return stack.isEmpty() ? Optional.empty() : Optional.of(new int[]{stack.pop(), position});
+    }
+
+    public static String extractMacroReference(String macro, int[] offsets) {
+        return macro.substring(offsets[0] + 2, offsets[1] - offsets[0]);
+    }
+
+    public static boolean isYamlLeaf(PsiElement psiElement) {
+        return psiElement instanceof YAMLKeyValue && !(((YAMLKeyValue) psiElement).getValue() instanceof YAMLMapping);
+    }
+
     public static String resolvePath(PsiElement psiElement) {
         List<String> path = new ArrayList<>();
         do {
@@ -77,7 +100,7 @@ public final class CoffigUtil {
         List<YAMLDocument> result = new ArrayList<>();
         Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(
                 FileTypeIndex.NAME,
-                CoffigYAMLFileType.INSTANCE,
+                CoffigYamlFileType.INSTANCE,
                 GlobalSearchScope.allScope(project));
         for (VirtualFile virtualFile : virtualFiles) {
             YAMLFile coffigFile = (YAMLFile) PsiManager.getInstance(project).findFile(virtualFile);

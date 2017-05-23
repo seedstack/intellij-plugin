@@ -5,14 +5,14 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IFileElementType;
 import org.jetbrains.yaml.YAMLParserDefinition;
 
-class CoffigYAMLParserDefinition extends YAMLParserDefinition {
-    private static final IFileElementType FILE = new IFileElementType(CoffigYAMLLanguage.INSTANCE);
+class CoffigYamlParserDefinition extends YAMLParserDefinition {
+    private static final IFileElementType FILE = new IFileElementType(CoffigYamlLanguage.INSTANCE);
 
     public IFileElementType getFileNodeType() {
         return FILE;
     }
 
     public PsiFile createFile(final FileViewProvider viewProvider) {
-        return new CoffigYAMLFileImpl(viewProvider);
+        return new CoffigYamlFileImpl(viewProvider);
     }
 }

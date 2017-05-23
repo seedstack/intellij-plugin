@@ -4,10 +4,10 @@ import com.intellij.lang.Language;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.yaml.YAMLLanguage;
 
-class CoffigYAMLLanguage extends Language {
-    static final CoffigYAMLLanguage INSTANCE = new CoffigYAMLLanguage();
+class CoffigYamlLanguage extends Language {
+    static final CoffigYamlLanguage INSTANCE = new CoffigYamlLanguage();
 
-    private CoffigYAMLLanguage() {
+    private CoffigYamlLanguage() {
         super(YAMLLanguage.INSTANCE, "coffig/yaml", "application/yaml");
     }
 
