@@ -5,7 +5,7 @@ import com.intellij.openapi.util.Iconable;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiEnumConstant;
 import com.intellij.psi.PsiType;
-import org.seedstack.intellij.spi.config.ValueCompletionResolver;
+import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
 import java.util.Arrays;
 import java.util.Optional;

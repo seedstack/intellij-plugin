@@ -33,6 +33,7 @@ public class CoffigLineMarkerProvider extends RelatedItemLineMarkerProvider {
                 configClasses = new HashMap<>();
                 CoffigResolver
                         .from(element.getProject())
+                        .onlyAtTopLevel()
                         .classes()
                         .forEach(match -> configClasses.put(match.getFullPath(), match.getConfigClass()));
             }

@@ -7,7 +7,7 @@ import com.intellij.psi.PsiClassType;
 import com.intellij.psi.PsiType;
 import com.intellij.psi.PsiWildcardType;
 import com.intellij.psi.search.searches.ClassInheritorsSearch;
-import org.seedstack.intellij.spi.config.ValueCompletionResolver;
+import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
 import java.util.Arrays;
 import java.util.HashSet;

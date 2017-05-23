@@ -3,7 +3,7 @@ package org.seedstack.intellij.config.completion.value;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiType;
-import org.seedstack.intellij.spi.config.ValueCompletionResolver;
+import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
 import java.util.stream.Stream;
 

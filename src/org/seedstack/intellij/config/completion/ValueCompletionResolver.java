@@ -1,4 +1,4 @@
-package org.seedstack.intellij.spi.config;
+package org.seedstack.intellij.config.completion;
 
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.psi.PsiClass;

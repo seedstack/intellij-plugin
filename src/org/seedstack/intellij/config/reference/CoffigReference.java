@@ -1,6 +1,5 @@
 package org.seedstack.intellij.config.reference;
 
-import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
@@ -12,15 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.seedstack.intellij.config.util.CoffigUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CoffigReference extends PsiReferenceBase<PsiElement> implements PsiPolyVariantReference {
     private final String key;
 
-    public CoffigReference(@NotNull PsiElement element, TextRange textRange) {
+    public CoffigReference(@NotNull PsiElement element, TextRange textRange, String key) {
         super(element, textRange);
-        key = element.getText().substring(textRange.getStartOffset(), textRange.getEndOffset());
+        this.key = key;
     }
 
     @NotNull
@@ -28,7 +24,7 @@ public class CoffigReference extends PsiReferenceBase<PsiElement> implements Psi
     public ResolveResult[] multiResolve(boolean incompleteCode) {
         if (key != null) {
             Project project = myElement.getProject();
-            return CoffigUtil.findCoffigKey(project, key).stream()
+            return CoffigUtil.findCoffigKeys(project, key).stream()
                     .map(PsiElementResolveResult::new)
                     .toArray(ResolveResult[]::new);
         }
@@ -45,8 +41,11 @@ public class CoffigReference extends PsiReferenceBase<PsiElement> implements Psi
     @NotNull
     @Override
     public Object[] getVariants() {
-        Project project = myElement.getProject();
-        List<LookupElement> variants = new ArrayList<>();
-        return variants.toArray();
+        return new Object[0];
+    }
+
+    @Override
+    public boolean isSoft() {
+        return false;
     }
 }

@@ -10,8 +10,6 @@ import com.intellij.psi.PsiType;
 import com.intellij.psi.PsiVariable;
 import com.intellij.psi.impl.source.PsiClassReferenceType;
 import org.seedstack.intellij.config.util.CoffigResolver;
-import org.seedstack.intellij.spi.config.CompletionResolver;
-import org.seedstack.intellij.spi.config.ValueCompletionResolver;
 
 import java.util.HashSet;
 import java.util.Optional;

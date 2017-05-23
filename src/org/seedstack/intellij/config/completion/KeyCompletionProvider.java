@@ -4,7 +4,6 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import org.seedstack.intellij.config.util.CoffigResolver;
-import org.seedstack.intellij.spi.config.CompletionResolver;
 
 import java.util.stream.Stream;
 
