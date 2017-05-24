@@ -14,9 +14,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.yaml.YAMLLanguage;
 import org.jetbrains.yaml.YAMLTokenTypes;
 import org.jetbrains.yaml.psi.YAMLDocument;
-import org.jetbrains.yaml.psi.YAMLKeyValue;
 import org.jetbrains.yaml.psi.YAMLMapping;
+import org.jetbrains.yaml.psi.YAMLQuotedText;
+import org.jetbrains.yaml.psi.YAMLScalar;
+import org.seedstack.intellij.config.util.MacroResolver;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -43,6 +46,7 @@ public class CoffigCompletionContributor extends CompletionContributor {
         protected void addCompletions(@NotNull CompletionParameters completionParameters, ProcessingContext processingContext, @NotNull CompletionResultSet completionResultSet) {
             Stream<LookupElementBuilder> stream = null;
             PsiElement position = completionParameters.getPosition();
+            PsiElement originalPosition = completionParameters.getOriginalPosition();
 
             // No completion on ordinary YAML files
             if (!isConfigFile(position)) {
@@ -57,14 +61,21 @@ public class CoffigCompletionContributor extends CompletionContributor {
                         );
             }
             // Completion for YAML values
-            else if (isValue(position)) {
-                String prefix = completionResultSet.getPrefixMatcher().getPrefix();
-                if (isInsideMacro(prefix)) {
-                    MacroInfo macroInfo = resolveMacroInfo(prefix, completionResultSet);
-                    completionResultSet = macroInfo.completionResultSet;
-                    stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, position);
-                } else {
-                    stream = VALUE_COMPLETION_PROVIDER.resolve(resolvePath(position), position);
+            else if (isValue(originalPosition)) {
+                YAMLScalar yamlScalar = (YAMLScalar) originalPosition.getContext();
+                if (yamlScalar != null) {
+                    int cursorOffset = calculateCursorOffset(completionParameters, originalPosition, yamlScalar);
+                    List<MacroResolver.Match> matches = new MacroResolver().resolve(yamlScalar.getTextValue().substring(0, cursorOffset));
+                    if (!matches.isEmpty()) {
+                        MacroResolver.Match closestMatch = findClosestMatch(matches, cursorOffset);
+                        if (closestMatch != null) {
+                            MacroInfo macroInfo = resolveMacroInfo(closestMatch, completionResultSet, cursorOffset);
+                            completionResultSet = macroInfo.completionResultSet;
+                            stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, originalPosition);
+                        }
+                    } else {
+                        stream = VALUE_COMPLETION_PROVIDER.resolve(resolvePath(originalPosition), originalPosition);
+                    }
                 }
             }
 
@@ -74,8 +85,27 @@ public class CoffigCompletionContributor extends CompletionContributor {
             }
         }
 
-        private MacroInfo resolveMacroInfo(String prefix, CompletionResultSet completionResultSet) {
-            String reference = prefix.substring(prefix.lastIndexOf(MACRO_START) + MACRO_START.length());
+        private int calculateCursorOffset(@NotNull CompletionParameters completionParameters, PsiElement position, YAMLScalar yamlScalar) {
+            // YAML quoted text is shifted by one because of starting quote
+            return completionParameters.getOffset() - (position.getTextRange().getStartOffset() + (yamlScalar instanceof YAMLQuotedText ? 1 : 0));
+        }
+
+        private MacroResolver.Match findClosestMatch(List<MacroResolver.Match> matches, int offset) {
+            MacroResolver.Match closest = null;
+            for (MacroResolver.Match match : matches) {
+                int currentShift = offset - match.getStartPos();
+                if (currentShift > 0 && match.isIncomplete()) {
+                    if (closest == null || currentShift < offset - closest.getStartPos()) {
+                        closest = match;
+                    }
+                }
+            }
+            return closest;
+        }
+
+        private MacroInfo resolveMacroInfo(MacroResolver.Match match, CompletionResultSet completionResultSet, int cursorOffset) {
+            String reference = match.getReference();
+            reference = reference.substring(0, Math.min(cursorOffset - match.getStartPos(), reference.length()));
             int lastDotIndex = reference.lastIndexOf(".");
             String path;
             if (reference.isEmpty()) {
@@ -102,11 +132,7 @@ public class CoffigCompletionContributor extends CompletionContributor {
         }
 
         private boolean isValue(PsiElement position) {
-            return position.getParent().getContext() instanceof YAMLKeyValue;
-        }
-
-        private boolean isInsideMacro(String prefix) {
-            return prefix.lastIndexOf(MACRO_START) > prefix.lastIndexOf(MACRO_END);
+            return position != null && position.getContext() instanceof YAMLScalar;
         }
 
         private static class MacroInfo {

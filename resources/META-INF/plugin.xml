@@ -42,4 +42,16 @@
         <psi.referenceContributor language="JAVA" implementation="org.seedstack.intellij.config.reference.CoffigJavaReferenceContributor"/>
         <annotator language="JAVA" implementationClass="org.seedstack.intellij.config.annotator.CoffigJavaAnnotator"/>
     </extensions>
+
+    <project-components>
+        <component>
+            <implementation-class>org.seedstack.intellij.navigator.SeedStackNavigator</implementation-class>
+        </component>
+    </project-components>
+
+    <actions>
+        <group id="SeedStack.NavigatorActionsToolbar">
+
+        </group>
+    </actions>
 </idea-plugin>

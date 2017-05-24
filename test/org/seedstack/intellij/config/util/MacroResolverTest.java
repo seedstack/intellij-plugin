@@ -10,7 +10,7 @@ public class MacroResolverTest {
         MacroResolver macroResolver = new MacroResolver();
         Assert.assertEquals(
                 Lists.newArrayList(
-                        new MacroResolver.Match("${simple.macro}", 2, 14, false)
+                        new MacroResolver.Match("${simple.macro}", 2, 14, false, false)
                 ),
                 macroResolver.resolve("${simple.macro}"));
     }
@@ -20,8 +20,8 @@ public class MacroResolverTest {
         MacroResolver macroResolver = new MacroResolver();
         Assert.assertEquals(
                 Lists.newArrayList(
-                        new MacroResolver.Match("${first.macro}-${second.macro}", 2, 13, false),
-                        new MacroResolver.Match("${first.macro}-${second.macro}", 17, 29, false)
+                        new MacroResolver.Match("${first.macro}-${second.macro}", 2, 13, false, false),
+                        new MacroResolver.Match("${first.macro}-${second.macro}", 17, 29, false, false)
                 ),
                 macroResolver.resolve("${first.macro}-${second.macro}"));
     }
@@ -31,9 +31,20 @@ public class MacroResolverTest {
         MacroResolver macroResolver = new MacroResolver();
         Assert.assertEquals(
                 Lists.newArrayList(
-                        new MacroResolver.Match("${${inner.macro}.macro}", 4, 15, false),
-                        new MacroResolver.Match("${${inner.macro}.macro}", 2, 22, false)
+                        new MacroResolver.Match("${${inner.macro}.macro}", 4, 15, false, false),
+                        new MacroResolver.Match("${${inner.macro}.macro}", 2, 22, false, false)
                 ),
                 macroResolver.resolve("${${inner.macro}.macro}"));
+    }
+
+    @Test
+    public void resolveIncompleteNested() throws Exception {
+        MacroResolver macroResolver = new MacroResolver();
+        Assert.assertEquals(
+                Lists.newArrayList(
+                        new MacroResolver.Match("${${inner.macro}.macro", 4, 15, false, false),
+                        new MacroResolver.Match("${${inner.macro}.macro", 2, 22, false, true)
+                ),
+                macroResolver.resolve("${${inner.macro}.macro"));
     }
 }

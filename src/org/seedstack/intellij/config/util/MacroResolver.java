@@ -2,6 +2,7 @@ package org.seedstack.intellij.config.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,14 +19,14 @@ public class MacroResolver {
         Match matchingResult;
         while ((matchingResult = findMatchingCurlyBraces(value, currentPos)) != null) {
             if (!matchingResult.escaped) {
-                int offset = startIndex;
+                int offset = matchingResult.getStartPos();
                 for (String part : value.substring(matchingResult.startPos, matchingResult.endPos).split(":")) {
-                    offset += 2;
                     if (part.startsWith("'") && part.endsWith("'")) {
                         break;
                     } else {
                         matches.addAll(resolve(value, offset));
                     }
+                    offset += part.length() + 1;
                 }
             }
             matches.add(matchingResult);
@@ -56,14 +57,18 @@ public class MacroResolver {
                 case "}":
                     level--;
                     if (level == 0) {
-                        return new Match(value, startPos + 2, matcher.start(), escaped);
+                        return new Match(value, startPos + 2, matcher.start(), escaped, false);
                     }
                     break;
                 default:
                     throw new IllegalStateException("Unexpected string in macro " + matcher.group());
             }
         }
-        return null;
+        if (level > 0) {
+            return new Match(value, startPos + 2, value.length(), escaped, true);
+        } else {
+            return null;
+        }
     }
 
     public static class Match {
@@ -71,12 +76,14 @@ public class MacroResolver {
         private final int startPos;
         private final int endPos;
         private final boolean escaped;
+        private final boolean incomplete;
 
-        Match(String value, int startPos, int endPos, boolean escaped) {
+        Match(String value, int startPos, int endPos, boolean escaped, boolean incomplete) {
             this.value = value;
             this.startPos = startPos;
             this.endPos = endPos;
             this.escaped = escaped;
+            this.incomplete = incomplete;
         }
 
         public int getStartPos() {
@@ -91,6 +98,10 @@ public class MacroResolver {
             return escaped;
         }
 
+        public boolean isIncomplete() {
+            return incomplete;
+        }
+
         public String getReference() {
             return value.substring(startPos, endPos);
         }
@@ -100,16 +111,16 @@ public class MacroResolver {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Match match = (Match) o;
-            return startPos == match.startPos && endPos == match.endPos && escaped == match.escaped && value.equals(match.value);
+            return startPos == match.startPos &&
+                    endPos == match.endPos &&
+                    escaped == match.escaped &&
+                    incomplete == match.incomplete &&
+                    Objects.equals(value, match.value);
         }
 
         @Override
         public int hashCode() {
-            int result = value.hashCode();
-            result = 31 * result + startPos;
-            result = 31 * result + endPos;
-            result = 31 * result + (escaped ? 1 : 0);
-            return result;
+            return Objects.hash(value, startPos, endPos, escaped, incomplete);
         }
 
         @Override
@@ -119,6 +130,7 @@ public class MacroResolver {
                     ", startPos=" + startPos +
                     ", endPos=" + endPos +
                     ", escaped=" + escaped +
+                    ", incomplete=" + incomplete +
                     '}';
         }
     }

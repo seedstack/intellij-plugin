@@ -20,6 +20,7 @@ class KeyCompletionProvider implements CompletionResolver {
         } else {
             keys = CoffigResolver.from(project)
                     .find(path)
+                    .filter(CoffigResolver.Match::isFullyResolved)
                     .map(CoffigResolver.Match::allProperties)
                     .orElse(Stream.empty());
         }

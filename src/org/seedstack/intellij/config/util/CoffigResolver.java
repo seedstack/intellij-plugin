@@ -219,7 +219,7 @@ public class CoffigResolver {
         }
 
         public boolean isFullyResolved() {
-            return !unmatchedPath.contains(".");
+            return unmatchedPath.isEmpty();
         }
 
         public Optional<PsiField> resolveField(String propertyName) {
