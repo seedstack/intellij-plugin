@@ -48,4 +48,6 @@ public class CoffigReference extends PsiReferenceBase<PsiElement> implements Psi
     public boolean isSoft() {
         return false;
     }
+
+
 }

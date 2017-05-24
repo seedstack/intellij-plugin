@@ -36,6 +36,7 @@
         <lang.refactoringSupport language="yaml" implementationClass="org.seedstack.intellij.config.refactor.CoffigRefactoringSupportProvider"/>
         <annotator language="yaml" implementationClass="org.seedstack.intellij.config.annotator.CoffigYamlAnnotator"/>
         <psi.referenceContributor language="yaml" implementation="org.seedstack.intellij.config.reference.CoffigYamlReferenceContributor"/>
+        <lang.elementManipulator forClass="org.jetbrains.yaml.psi.impl.YAMLKeyValueImpl" implementationClass="org.seedstack.intellij.config.refactor.CoffigYamlKeyValueManipulator"/>
 
         <!-- For JAVA language -->
         <psi.referenceContributor language="JAVA" implementation="org.seedstack.intellij.config.reference.CoffigJavaReferenceContributor"/>

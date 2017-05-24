@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class CoffigBaseReferenceContributor extends PsiReferenceContributor {
     @NotNull
-    protected PsiReference[] resolvePsiReferences(@NotNull PsiElement element, String value, int rangeOffset) {
+    protected List<PsiReference> resolvePsiReferences(@NotNull PsiElement element, String value, int rangeOffset) {
         if (value != null) {
             String[] split = value.split("\\.");
             List<PsiReference> psiReferences = new ArrayList<>();
@@ -25,9 +25,9 @@ public abstract class CoffigBaseReferenceContributor extends PsiReferenceContrib
                 sb.append(split[i]);
                 psiReferences.add(new CoffigReference(element, new TextRange(rangeOffset + startIndex, rangeOffset + sb.length()), sb.toString()));
             }
-            return psiReferences.toArray(new PsiReference[psiReferences.size()]);
+            return psiReferences;
         } else {
-            return new PsiReference[0];
+            return new ArrayList<>();
         }
     }
 }

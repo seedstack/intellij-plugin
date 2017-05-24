@@ -9,6 +9,8 @@ import com.intellij.psi.PsiReferenceRegistrar;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 import static org.seedstack.intellij.config.util.CoffigUtil.isCoffigMethod;
 import static org.seedstack.intellij.config.util.CoffigUtil.isLiteralOfConfigurationAnnotation;
 
@@ -23,7 +25,8 @@ public class CoffigJavaReferenceContributor extends CoffigBaseReferenceContribut
                         if (isLiteralOfConfigurationAnnotation(element) || isCoffigMethod(element)) {
                             PsiLiteralExpression literalExpression = (PsiLiteralExpression) element;
                             String value = literalExpression.getValue() instanceof String ? (String) literalExpression.getValue() : null;
-                            return resolvePsiReferences(element, value, 1);
+                            List<PsiReference> psiReferences = resolvePsiReferences(element, value, 1);
+                            return psiReferences.toArray(new PsiReference[psiReferences.size()]);
                         }
                         return PsiReference.EMPTY_ARRAY;
                     }
