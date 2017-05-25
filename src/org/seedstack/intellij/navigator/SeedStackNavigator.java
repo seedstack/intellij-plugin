@@ -15,12 +15,22 @@
  */
 package org.seedstack.intellij.navigator;
 
+import com.intellij.ide.util.treeView.TreeState;
 import com.intellij.openapi.Disposable;
+import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.AbstractProjectComponent;
+import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.components.ServiceManager;
+import com.intellij.openapi.components.State;
+import com.intellij.openapi.components.Storage;
+import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.project.DumbAwareRunnable;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.InvalidDataException;
+import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ex.ToolWindowEx;
 import com.intellij.openapi.wm.ex.ToolWindowManagerAdapter;
@@ -29,17 +39,26 @@ import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import com.intellij.ui.content.ContentManager;
 import com.intellij.ui.treeStructure.SimpleTree;
+import org.jdom.Element;
+import org.jetbrains.annotations.Nullable;
 import org.seedstack.intellij.SeedStackIcons;
+import org.seedstack.intellij.SeedStackLog;
 import org.seedstack.intellij.navigator.util.NavigatorUtil;
 
 import javax.swing.*;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
 
-public class SeedStackNavigator extends AbstractProjectComponent implements Disposable, ProjectComponent {
+@State(name = "SeedstackNavigator", storages = {@Storage(StoragePathMacros.WORKSPACE_FILE)})
+public class SeedStackNavigator extends AbstractProjectComponent implements
+        Disposable,
+        ProjectComponent,
+        PersistentStateComponent<SeedStackNavigatorState> {
     public static final String TOOL_WINDOW_ID = "SeedStack";
+    private SeedStackNavigatorState state = new SeedStackNavigatorState();
     private SimpleTree tree;
     private ToolWindowEx toolWindow;
+    private SeedStackStructure structure;
 
     public static SeedStackNavigator getInstance(Project project) {
         return project.getComponent(SeedStackNavigator.class);
@@ -47,6 +66,32 @@ public class SeedStackNavigator extends AbstractProjectComponent implements Disp
 
     public SeedStackNavigator(Project project) {
         super(project);
+    }
+
+    @Nullable
+    @Override
+    public SeedStackNavigatorState getState() {
+        ApplicationManager.getApplication().assertIsDispatchThread();
+        if (structure != null) {
+            try {
+                state.treeState = new Element("root");
+                TreeState.createOn(tree).writeExternal(state.treeState);
+            } catch (WriteExternalException e) {
+                // TODO: log
+            }
+        }
+        return state;
+    }
+
+    @Override
+    public void loadState(SeedStackNavigatorState seedStackNavigatorState) {
+        state = seedStackNavigatorState;
+        scheduleStructureUpdate();
+    }
+
+    @Override
+    public void noStateLoaded() {
+        scheduleStructureUpdate();
     }
 
     @Override
@@ -82,25 +127,17 @@ public class SeedStackNavigator extends AbstractProjectComponent implements Disp
             public void stateChanged() {
                 if (toolWindow.isDisposed()) return;
                 boolean visible = toolWindow.isVisible();
-                if (!visible || wasVisible) {
+                if (!visible) {
                     return;
                 }
-                // TODO update
-                wasVisible = true;
+                scheduleStructureUpdate();
             }
         };
         manager.addToolWindowManagerListener(listener, myProject);
 
-//        ActionManager actionManager = ActionManager.getInstance();
-//
-//        DefaultActionGroup group = new DefaultActionGroup();
-//        group.add(actionManager.getAction("Maven.GroupProjects"));
-//        group.add(actionManager.getAction("Maven.ShowIgnored"));
-//        group.add(actionManager.getAction("Maven.ShowBasicPhasesOnly"));
-//        group.add(actionManager.getAction("Maven.AlwaysShowArtifactId"));
-//        group.add(actionManager.getAction("Maven.ShowVersions"));
-//
-//        toolWindow.setAdditionalGearActions(group);
+        ActionManager actionManager = ActionManager.getInstance();
+        DefaultActionGroup group = new DefaultActionGroup();
+        toolWindow.setAdditionalGearActions(group);
     }
 
     private void initTree() {
@@ -110,23 +147,61 @@ public class SeedStackNavigator extends AbstractProjectComponent implements Disp
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                myLabel.setFont(getFont());
-                myLabel.setBackground(getBackground());
-                myLabel.setForeground(getForeground());
-                Rectangle bounds = getBounds();
-                Dimension size = myLabel.getPreferredSize();
-                myLabel.setBounds(0, 0, size.width, size.height);
+                if (!isSeedStackProject()) {
+                    myLabel.setFont(getFont());
+                    myLabel.setBackground(getBackground());
+                    myLabel.setForeground(getForeground());
+                    Rectangle bounds = getBounds();
+                    Dimension size = myLabel.getPreferredSize();
+                    myLabel.setBounds(0, 0, size.width, size.height);
 
-                int x = (bounds.width - size.width) / 2;
-                Graphics g2 = g.create(bounds.x + x, bounds.y + 20, bounds.width, bounds.height);
-                try {
-                    myLabel.paint(g2);
-                } finally {
-                    g2.dispose();
+                    int x = (bounds.width - size.width) / 2;
+                    Graphics g2 = g.create(bounds.x + x, bounds.y + 20, bounds.width, bounds.height);
+                    try {
+                        myLabel.paint(g2);
+                    } finally {
+                        g2.dispose();
+                    }
                 }
             }
         };
         tree.getEmptyText().clear();
         tree.getSelectionModel().setSelectionMode(TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
+    }
+
+    private void scheduleStructureRequest(final Runnable r) {
+        if (toolWindow == null) return;
+        NavigatorUtil.invokeLater(myProject, () -> {
+            if (!toolWindow.isVisible()) return;
+
+            boolean shouldCreate = structure == null;
+            if (shouldCreate) {
+                initStructure();
+            }
+
+            r.run();
+
+            if (shouldCreate && this.state.treeState != null) {
+                TreeState treeState = new TreeState();
+                try {
+                    treeState.readExternal(this.state.treeState);
+                    treeState.applyTo(this.tree);
+                } catch (InvalidDataException e) {
+                    SeedStackLog.LOG.info(e);
+                }
+            }
+        });
+    }
+
+    private void initStructure() {
+        structure = new SeedStackStructure(myProject, tree);
+    }
+
+    private void scheduleStructureUpdate() {
+        scheduleStructureRequest(() -> structure.update());
+    }
+
+    private boolean isSeedStackProject() {
+        return true;
     }
 }

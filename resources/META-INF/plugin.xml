@@ -50,6 +50,12 @@
     </project-components>
 
     <actions>
+        <!--<action id="SeedStack.RunTool"-->
+                <!--class="org.jetbrains.idea.maven.project.actions.RunBuildAction"-->
+                <!--text="_Run Maven Build"-->
+                <!--description="Execute selected phases or goals"-->
+                <!--icon="AllIcons.Actions.Execute">-->
+        <!--</action>-->
         <group id="SeedStack.NavigatorActionsToolbar">
 
         </group>

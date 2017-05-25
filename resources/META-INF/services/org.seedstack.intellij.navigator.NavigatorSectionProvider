@@ -1,1 +1,3 @@
 org.seedstack.intellij.navigator.tools.ToolsSectionProvider
+org.seedstack.intellij.navigator.config.ConfigurationSectionProvider
+org.seedstack.intellij.navigator.business.BusinessSectionProvider

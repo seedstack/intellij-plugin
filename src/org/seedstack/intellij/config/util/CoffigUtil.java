@@ -80,17 +80,21 @@ public final class CoffigUtil {
 
     public static List<YAMLDocument> findCoffigDocuments(Project project) {
         List<YAMLDocument> result = new ArrayList<>();
-        Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(
-                FileTypeIndex.NAME,
-                CoffigYamlFileType.INSTANCE,
-                GlobalSearchScope.allScope(project));
-        for (VirtualFile virtualFile : virtualFiles) {
+        for (VirtualFile virtualFile : findCoffigFiles(project)) {
             YAMLFile coffigFile = (YAMLFile) PsiManager.getInstance(project).findFile(virtualFile);
             if (coffigFile != null) {
                 result.addAll(coffigFile.getDocuments());
             }
         }
         return result;
+    }
+
+    @NotNull
+    public static Collection<VirtualFile> findCoffigFiles(Project project) {
+        return FileBasedIndex.getInstance().getContainingFiles(
+                FileTypeIndex.NAME,
+                CoffigYamlFileType.INSTANCE,
+                GlobalSearchScope.allScope(project));
     }
 
     public static Set<YAMLKeyValue> findCoffigKeys(Project project, String path) {
