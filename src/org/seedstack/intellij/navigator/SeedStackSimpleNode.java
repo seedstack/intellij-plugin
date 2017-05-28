@@ -4,6 +4,7 @@ import com.intellij.ide.util.treeView.NodeDescriptor;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.Navigatable;
+import com.intellij.psi.PsiFile;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.treeStructure.CachingSimpleNode;
@@ -18,12 +19,14 @@ import java.awt.event.InputEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class SeedStackSimpleNode extends CachingSimpleNode {
     private final SeedStackStructure structure;
     private SeedStackSimpleNode parent;
     private SeedStackStructure.ErrorLevel errorLevel = SeedStackStructure.ErrorLevel.NONE;
     private SeedStackStructure.ErrorLevel totalErrorLevel = null;
+    private List<SeedStackSimpleNode> previous = new ArrayList<>();
 
     SeedStackSimpleNode(SeedStackStructure structure) {
         super(structure.getProject(), null);
@@ -84,6 +87,10 @@ public abstract class SeedStackSimpleNode extends CachingSimpleNode {
 
     protected List<? extends SeedStackSimpleNode> doGetChildren() {
         return Collections.emptyList();
+    }
+
+    public void refresh(@Nullable PsiFile psiFile) {
+
     }
 
     @Override
@@ -185,6 +192,8 @@ public abstract class SeedStackSimpleNode extends CachingSimpleNode {
         String actionId = getActionId();
         if (actionId != null) {
             NavigatorUtil.executeAction(actionId, inputEvent);
+        } else if (!(this instanceof SeedStackGroupNode)) {
+            Optional.ofNullable(getNavigatable()).ifPresent(navigatable -> navigatable.navigate(true));
         }
     }
 

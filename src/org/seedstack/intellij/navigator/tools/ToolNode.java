@@ -1,17 +1,17 @@
 package org.seedstack.intellij.navigator.tools;
 
-import com.google.common.base.CaseFormat;
 import com.intellij.psi.PsiClass;
 import org.seedstack.intellij.SeedStackIcons;
 import org.seedstack.intellij.navigator.SeedStackSimpleNode;
+import org.seedstack.intellij.navigator.common.ClassNode;
 
-class ToolNode extends SeedStackSimpleNode {
-    private final PsiClass psiClass;
+import static org.seedstack.intellij.navigator.util.NavigatorUtil.humanizeString;
+
+class ToolNode extends ClassNode {
     private final String name;
 
     ToolNode(SeedStackSimpleNode parent, PsiClass psiClass) {
-        super(parent);
-        this.psiClass = psiClass;
+        super(parent, psiClass);
         this.name = buildName(psiClass);
         setIcon(SeedStackIcons.TOOL);
     }
@@ -24,15 +24,9 @@ class ToolNode extends SeedStackSimpleNode {
     private String buildName(PsiClass psiClass) {
         String simpleName = psiClass.getName();
         if (simpleName != null) {
-            String name = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, simpleName);
-            if (name.endsWith("_tool")) {
-                name = name.substring(0, name.length() - 5);
-            }
-            name = name.replace("_", " ");
-            return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+            return humanizeString(simpleName, "Tool");
         } else {
             throw new IllegalStateException("Tool PsiClass has no name");
         }
     }
-
 }

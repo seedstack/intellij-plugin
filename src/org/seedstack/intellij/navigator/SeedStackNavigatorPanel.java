@@ -3,6 +3,7 @@ package org.seedstack.intellij.navigator;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
@@ -17,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeedStackNavigatorPanel extends SimpleToolWindowPanel {
+public class SeedStackNavigatorPanel extends SimpleToolWindowPanel implements DataProvider {
     private final Project project;
     private final SimpleTree tree;
 
@@ -38,6 +39,7 @@ public class SeedStackNavigatorPanel extends SimpleToolWindowPanel {
     }
 
     @Nullable
+    @Override
     public Object getData(@NonNls String dataId) {
         if (CommonDataKeys.PROJECT.is(dataId)) return project;
 

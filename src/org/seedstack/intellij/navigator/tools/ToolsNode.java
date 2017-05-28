@@ -3,27 +3,23 @@ package org.seedstack.intellij.navigator.tools;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiModifierList;
+import com.intellij.psi.PsiFile;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.searches.ClassInheritorsSearch;
+import com.intellij.util.containers.MultiMap;
 import org.seedstack.intellij.SeedStackIcons;
-import org.seedstack.intellij.SeedStackLog;
 import org.seedstack.intellij.navigator.SeedStackGroupNode;
 import org.seedstack.intellij.navigator.SeedStackSimpleNode;
-import org.seedstack.intellij.navigator.util.NavigatorUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.seedstack.intellij.navigator.util.NavigatorUtil.isAbstract;
 
-class ToolsNode extends SeedStackGroupNode {
-    private static final String ORG_SEEDSTACK_SEED_SPI_SEED_TOOL = "org.seedstack.seed.spi.SeedTool";
+class ToolsNode extends SeedStackGroupNode<ToolNode> {
+    private static final String TOOL_INTERFACE = "org.seedstack.seed.spi.SeedTool";
     private static final String NAME = "Tools";
-    private final List<ToolNode> toolNodes = new ArrayList<>();
 
     ToolsNode(SeedStackSimpleNode parent) {
         super(parent);
         setIcon(SeedStackIcons.TOOLS);
-        NavigatorUtil.runDumbAware(getProject(), this::updateTools);
     }
 
     @Override
@@ -31,37 +27,20 @@ class ToolsNode extends SeedStackGroupNode {
         return NAME;
     }
 
-    @Override
-    protected List<? extends SeedStackSimpleNode> doGetChildren() {
-        return toolNodes;
-    }
-
-    private void updateTools() {
-        toolNodes.clear();
-        toolNodes.addAll(detectProjectTools(myProject));
-        sort(toolNodes);
-        childrenChanged();
-    }
-
-    private List<ToolNode> detectProjectTools(Project project) {
-        List<ToolNode> results = new ArrayList<>();
-        PsiClass toolInterface = JavaPsiFacade.getInstance(project).findClass(ORG_SEEDSTACK_SEED_SPI_SEED_TOOL, GlobalSearchScope.allScope(project));
-        if (toolInterface != null) {
-            ClassInheritorsSearch.search(toolInterface, GlobalSearchScope.allScope(project), true).forEach(psiClass -> {
-                if (isNotAbstract(psiClass)) {
-                    try {
-                        results.add(new ToolNode(this, psiClass));
-                    } catch (Exception e) {
-                        SeedStackLog.LOG.warn("Unable to resolve SeedStack tool", e);
+    protected MultiMap<PsiFile, ToolNode> computeChildren(PsiFile psiFile) {
+        MultiMap<PsiFile, ToolNode> children = new MultiMap<>();
+        Project project = getProject();
+        if (project != null) {
+            PsiClass toolInterface = JavaPsiFacade.getInstance(project).findClass(TOOL_INTERFACE, GlobalSearchScope.allScope(project));
+            if (toolInterface != null) {
+                ClassInheritorsSearch.search(toolInterface, GlobalSearchScope.allScope(project), true).forEach(psiClass -> {
+                    PsiFile containingFile = psiClass.getContainingFile();
+                    if (!isAbstract(psiClass)) {
+                        children.putValue(containingFile, new ToolNode(this, psiClass));
                     }
-                }
-            });
+                });
+            }
         }
-        return results;
-    }
-
-    private boolean isNotAbstract(PsiClass psiClass) {
-        PsiModifierList modifierList = psiClass.getModifierList();
-        return modifierList != null && !modifierList.hasModifierProperty("abstract");
+        return children;
     }
 }

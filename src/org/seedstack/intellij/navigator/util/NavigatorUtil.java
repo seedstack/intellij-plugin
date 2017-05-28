@@ -1,5 +1,6 @@
 package org.seedstack.intellij.navigator.util;
 
+import com.google.common.base.CaseFormat;
 import com.intellij.ide.DataManager;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -16,8 +17,10 @@ import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.Navigatable;
 import com.intellij.pom.NavigatableAdapter;
+import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
+import com.intellij.psi.PsiModifierList;
 import com.intellij.util.DisposeAwareRunnable;
 import com.intellij.util.concurrency.Semaphore;
 import org.jetbrains.annotations.Nullable;
@@ -142,5 +145,18 @@ public final class NavigatorUtil {
         } else {
             DumbService.getInstance(project).runWhenSmart(DisposeAwareRunnable.create(r, project));
         }
+    }
+
+    public static String humanizeString(String name, String suffixToRemove) {
+        if (suffixToRemove != null && name.endsWith(suffixToRemove)) {
+            name = name.substring(0, name.length() - suffixToRemove.length());
+        }
+        name = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name).replace("_", " ");
+        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+    }
+
+    public static boolean isAbstract(PsiClass psiClass) {
+        PsiModifierList modifierList = psiClass.getModifierList();
+        return modifierList != null && modifierList.hasModifierProperty("abstract");
     }
 }

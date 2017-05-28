@@ -1,14 +1,14 @@
 package org.seedstack.intellij.navigator.business.application;
 
 import com.google.common.collect.Lists;
+import com.intellij.psi.PsiFile;
+import com.intellij.util.containers.MultiMap;
+import org.jetbrains.annotations.Nullable;
 import org.seedstack.intellij.SeedStackIcons;
 import org.seedstack.intellij.navigator.SeedStackGroupNode;
 import org.seedstack.intellij.navigator.SeedStackSimpleNode;
-import org.seedstack.intellij.navigator.util.NavigatorUtil;
 
-import java.util.List;
-
-public class ApplicationNode extends SeedStackGroupNode {
+public class ApplicationNode extends SeedStackGroupNode<SeedStackGroupNode> {
     private static final String NAME = "Application";
     private final ApplicationServicesNode applicationServicesNode;
 
@@ -16,7 +16,6 @@ public class ApplicationNode extends SeedStackGroupNode {
         super(parent);
         this.applicationServicesNode = new ApplicationServicesNode(this);
         setIcon(SeedStackIcons.FOLDER);
-        NavigatorUtil.runDumbAware(getProject(), this::updateApplication);
     }
 
     @Override
@@ -25,12 +24,9 @@ public class ApplicationNode extends SeedStackGroupNode {
     }
 
     @Override
-    protected List<? extends SeedStackSimpleNode> doGetChildren() {
-        return Lists.newArrayList(applicationServicesNode);
-    }
-
-    public void updateApplication() {
-        applicationServicesNode.updateServices();
-        childrenChanged();
+    protected MultiMap<PsiFile, SeedStackGroupNode> computeChildren(@Nullable PsiFile psiFile) {
+        MultiMap<PsiFile, SeedStackGroupNode> children = new MultiMap<>();
+        children.put(null, Lists.newArrayList(applicationServicesNode));
+        return children;
     }
 }

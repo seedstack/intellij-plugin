@@ -1,24 +1,16 @@
 package org.seedstack.intellij.navigator.business.application;
 
-import com.intellij.psi.JavaPsiFacade;
-import com.intellij.psi.search.GlobalSearchScope;
-import org.seedstack.intellij.SeedStackIcons;
-import org.seedstack.intellij.navigator.SeedStackGroupNode;
+import com.intellij.psi.PsiClass;
 import org.seedstack.intellij.navigator.SeedStackSimpleNode;
-import org.seedstack.intellij.navigator.business.ServiceNode;
-import org.seedstack.intellij.navigator.util.NavigatorUtil;
+import org.seedstack.intellij.navigator.business.ServicesNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
-class ApplicationServicesNode extends SeedStackGroupNode {
+class ApplicationServicesNode extends ServicesNode {
     private static final String NAME = "Services";
-    private final List<ServiceNode> serviceNodes = new ArrayList<>();
 
     ApplicationServicesNode(SeedStackSimpleNode parent) {
         super(parent);
-        setIcon(SeedStackIcons.SERVICE);
-        NavigatorUtil.runDumbAware(getProject(), this::updateServices);
     }
 
     @Override
@@ -27,14 +19,9 @@ class ApplicationServicesNode extends SeedStackGroupNode {
     }
 
     @Override
-    protected List<? extends SeedStackSimpleNode> doGetChildren() {
-        return serviceNodes;
-    }
-
-    void updateServices() {
-        serviceNodes.clear();
-        serviceNodes.add(new ServiceNode(this, JavaPsiFacade.getInstance(getProject()).findClass("org.seedstack.seed.spi.SeedTool", GlobalSearchScope.allScope(getProject()))));
-        sort(serviceNodes);
-        childrenChanged();
+    protected boolean isSatisfying(PsiClass psiClass) {
+        return Optional.ofNullable(psiClass.getQualifiedName())
+                .filter(qualifiedName -> qualifiedName.contains(".application."))
+                .isPresent();
     }
 }

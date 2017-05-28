@@ -3,10 +3,13 @@ package org.seedstack.intellij.navigator;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.psi.PsiFile;
 import com.intellij.ui.treeStructure.SimpleNode;
 import com.intellij.ui.treeStructure.SimpleTree;
 import com.intellij.ui.treeStructure.SimpleTreeBuilder;
 import com.intellij.ui.treeStructure.SimpleTreeStructure;
+import com.intellij.util.containers.MultiMap;
+import org.jetbrains.annotations.Nullable;
 import org.seedstack.intellij.SeedStackIcons;
 
 import javax.swing.tree.DefaultTreeModel;
@@ -22,7 +25,7 @@ public class SeedStackStructure extends SimpleTreeStructure {
     static final Comparator<SeedStackSimpleNode> NODE_COMPARATOR = (o1, o2) -> StringUtil.compare(o1.getName(), o2.getName(), true);
     private final Project project;
     private final RootNode rootNode;
-    private SimpleTreeBuilder treeBuilder;
+    private final SimpleTreeBuilder treeBuilder;
 
     public SeedStackStructure(Project project, SimpleTree tree) {
         this.project = project;
@@ -34,11 +37,10 @@ public class SeedStackStructure extends SimpleTreeStructure {
         Disposer.register(this.project, treeBuilder);
 
         treeBuilder.initRoot();
-        treeBuilder.expand(rootNode, null);
     }
 
     private void configureTree(final SimpleTree tree) {
-        tree.setRootVisible(false);
+        tree.setRootVisible(true);
         tree.setShowsRootHandles(true);
     }
 
@@ -47,8 +49,8 @@ public class SeedStackStructure extends SimpleTreeStructure {
         return rootNode;
     }
 
-    void update() {
-        rootNode.update();
+    void refresh(@Nullable PsiFile psiFile) {
+        rootNode.refresh(psiFile);
     }
 
     public void updateFrom(SimpleNode node) {
@@ -103,25 +105,30 @@ public class SeedStackStructure extends SimpleTreeStructure {
         NONE, ERROR
     }
 
-    enum DisplayKind {
+    public enum DisplayKind {
         ALWAYS, NEVER, NORMAL
     }
 
-    public class RootNode extends SeedStackGroupNode {
-        private List<SeedStackSimpleNode> sectionNodes = new ArrayList<>();
+    private class RootNode extends SeedStackGroupNode<SeedStackSimpleNode> {
+        boolean initialized = false;
 
-        public RootNode() {
+        private RootNode() {
             super(SeedStackStructure.this);
             setIcon(SeedStackIcons.LOGO);
-            for (NavigatorSectionProvider sectionProvider : ServiceLoader.load(NavigatorSectionProvider.class, SeedStackStructure.class.getClassLoader())) {
-                sectionNodes.add(sectionProvider.getSectionNode(this));
-            }
-            sort(sectionNodes);
         }
 
         @Override
-        protected List<? extends SeedStackSimpleNode> doGetChildren() {
-            return sectionNodes;
+        public MultiMap<PsiFile, SeedStackSimpleNode> computeChildren(PsiFile psiFile) {
+            if (!initialized) {
+                MultiMap<PsiFile, SeedStackSimpleNode> children = new MultiMap<>();
+                for (NavigatorSectionProvider sectionProvider : ServiceLoader.load(NavigatorSectionProvider.class, SeedStackStructure.class.getClassLoader())) {
+                    children.putValue(null, sectionProvider.getSectionNode(this));
+                }
+                initialized = true;
+                return children;
+            } else {
+                return null;
+            }
         }
 
         @Override

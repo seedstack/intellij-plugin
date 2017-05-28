@@ -35,6 +35,9 @@ import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ex.ToolWindowEx;
 import com.intellij.openapi.wm.ex.ToolWindowManagerAdapter;
 import com.intellij.openapi.wm.ex.ToolWindowManagerEx;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiManager;
+import com.intellij.psi.PsiTreeAnyChangeAbstractAdapter;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import com.intellij.ui.content.ContentManager;
@@ -54,7 +57,7 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
         Disposable,
         ProjectComponent,
         PersistentStateComponent<SeedStackNavigatorState> {
-    public static final String TOOL_WINDOW_ID = "SeedStack";
+    private static final String TOOL_WINDOW_ID = "SeedStack";
     private SeedStackNavigatorState state = new SeedStackNavigatorState();
     private SimpleTree tree;
     private ToolWindowEx toolWindow;
@@ -77,7 +80,7 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
                 state.treeState = new Element("root");
                 TreeState.createOn(tree).writeExternal(state.treeState);
             } catch (WriteExternalException e) {
-                // TODO: log
+                SeedStackLog.LOG.warn("Cannot write SeedStack structure state", e);
             }
         }
         return state;
@@ -86,12 +89,12 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
     @Override
     public void loadState(SeedStackNavigatorState seedStackNavigatorState) {
         state = seedStackNavigatorState;
-        scheduleStructureUpdate();
+        scheduleStructureUpdate(null);
     }
 
     @Override
     public void noStateLoaded() {
-        scheduleStructureUpdate();
+        scheduleStructureUpdate(null);
     }
 
     @Override
@@ -130,7 +133,7 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
                 if (!visible) {
                     return;
                 }
-                scheduleStructureUpdate();
+                scheduleStructureUpdate(null);
             }
         };
         manager.addToolWindowManagerListener(listener, myProject);
@@ -171,7 +174,7 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
 
     private void scheduleStructureRequest(final Runnable r) {
         if (toolWindow == null) return;
-        NavigatorUtil.invokeLater(myProject, () -> {
+        NavigatorUtil.runDumbAware(myProject, () -> {
             if (!toolWindow.isVisible()) return;
 
             boolean shouldCreate = structure == null;
@@ -195,10 +198,16 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
 
     private void initStructure() {
         structure = new SeedStackStructure(myProject, tree);
+        PsiManager.getInstance(myProject).addPsiTreeChangeListener(new PsiTreeAnyChangeAbstractAdapter() {
+            @Override
+            protected void onChange(@Nullable PsiFile psiFile) {
+                scheduleStructureUpdate(psiFile);
+            }
+        });
     }
 
-    private void scheduleStructureUpdate() {
-        scheduleStructureRequest(() -> structure.update());
+    private void scheduleStructureUpdate(@Nullable PsiFile psiFile) {
+        scheduleStructureRequest(() -> structure.refresh(psiFile));
     }
 
     private boolean isSeedStackProject() {

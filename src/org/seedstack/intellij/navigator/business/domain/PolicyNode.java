@@ -1,4 +1,4 @@
-package org.seedstack.intellij.navigator.business;
+package org.seedstack.intellij.navigator.business.domain;
 
 import com.intellij.psi.PsiClass;
 import org.seedstack.intellij.SeedStackIcons;
@@ -7,8 +7,8 @@ import org.seedstack.intellij.navigator.common.InterfaceNode;
 
 import javax.swing.*;
 
-public class ServiceNode extends InterfaceNode {
-    public ServiceNode(SeedStackSimpleNode parent, PsiClass psiClass) {
+class PolicyNode extends InterfaceNode {
+    PolicyNode(SeedStackSimpleNode parent, PsiClass psiClass) {
         super(parent, psiClass);
     }
 
