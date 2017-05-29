@@ -5,31 +5,117 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9d6d6e9-8150-4414-93d9-aabd72b5d5c1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/icons/aggregate.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/icons/aggregate@2x.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/NavigatorSectionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigatorState.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/NavigatorSectionProvider.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorState.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.config.completion.ValueCompletionResolver" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.seedstack.intellij.config.completion.ValueCompletionResolver" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/aggregate.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/aggregate.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/aggregate@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/aggregate@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/aggregate@2x_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/aggregate@2x_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/aggregate_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/aggregate_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/business.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/business.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/business@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/business@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/class.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/class.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/class@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/class@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/config.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/config.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/config@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/config@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/configFile.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/configFile.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/configFile@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/configFile@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/configFile@2x_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/configFile@2x_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/configFile_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/configFile_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/folder.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/folder.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/folder@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/folder@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/interface.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/interface.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/interface@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/interface@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/policy.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/policy.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/policy@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/policy@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/seedstack.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/seedstack.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/seedstack@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/seedstack@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/service.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/service.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/service@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/service@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/service@2x_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/service@2x_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/service_dark.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/service_dark.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/tool.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/tool.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/tool@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/tool@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/tools.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/tools.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/tools@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/tools@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/valueObject.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/valueObject.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/icons/valueObject@2x.png" afterPath="$PROJECT_DIR$/src/main/resources/icons/valueObject@2x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackFramework.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/SeedStackFramework.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackIcons.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/SeedStackIcons.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackLog.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/SeedStackLog.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/annotator/CoffigJavaAnnotator.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/annotator/CoffigJavaAnnotator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/annotator/CoffigYamlAnnotator.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/annotator/CoffigYamlAnnotator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/CoffigCompletionContributor.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/CoffigCompletionContributor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/CompletionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/CompletionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/KeyCompletionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/KeyCompletionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/ValueCompletionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/ValueCompletionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/ValueCompletionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/ValueCompletionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/value/BooleanCompletionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/value/BooleanCompletionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/value/ClassCompletionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/value/ClassCompletionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/completion/value/EnumCompletionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/completion/value/EnumCompletionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/documentation/CoffigDocumentationProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/documentation/CoffigDocumentationProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/marker/CoffigLineMarkerProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/marker/CoffigLineMarkerProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/refactor/CoffigRefactoringSupportProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/refactor/CoffigRefactoringSupportProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/refactor/CoffigYamlKeyValueManipulator.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/refactor/CoffigYamlKeyValueManipulator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/reference/CoffigBaseReferenceContributor.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/reference/CoffigBaseReferenceContributor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/reference/CoffigJavaReferenceContributor.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/reference/CoffigJavaReferenceContributor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/reference/CoffigReference.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/reference/CoffigReference.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/reference/CoffigYamlReferenceContributor.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/reference/CoffigYamlReferenceContributor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/usage/CoffigFindUsagesProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/usage/CoffigFindUsagesProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/util/CoffigResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/util/CoffigResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/util/CoffigUtil.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/util/CoffigUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/util/MacroResolver.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/util/MacroResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/yaml/CoffigYamlFileImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlFileImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/yaml/CoffigYamlFileType.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlFileType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/yaml/CoffigYamlFileTypeFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlFileTypeFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/yaml/CoffigYamlLanguage.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlLanguage.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/config/yaml/CoffigYamlParserDefinition.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlParserDefinition.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackGroupNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigator.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackStructure.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/BusinessNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessSectionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/BusinessSectionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/ServiceNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServicesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/ServicesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/application/ApplicationNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregateNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/AggregateNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/DomainNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/EntityNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/EntityNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PoliciesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/PoliciesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PolicyNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/PolicyNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/ValueObjectNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/ValueObjectNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/ClassNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/common/ClassNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/InterfaceNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/common/InterfaceNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigFileNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/config/ConfigFileNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigurationNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/config/ConfigurationNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigurationSectionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/config/ConfigurationSectionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourceNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/ResourceNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourcesNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/ResourcesNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/RestSectionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/RestSectionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/tools/ToolNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/tools/ToolsNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsSectionProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/tools/ToolsSectionProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/util/NavigatorUtil.java" afterPath="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/util/NavigatorUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/org/seedstack/intellij/config/util/MacroResolverTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/seedstack/intellij/config/util/MacroResolverTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider" afterPath="$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackIcons.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackIcons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigator.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregateNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregateNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigFileNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigFileNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigurationNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigurationNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsNode.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/util/NavigatorUtil.java" afterPath="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/util/NavigatorUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seedstack-intellij-plugin.iml" afterPath="$PROJECT_DIR$/seedstack-intellij-plugin.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,118 +125,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClassNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/ClassNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigFileNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigFileNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourcesNode.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourcesNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoffigResolver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/config/util/CoffigResolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="300" column="82" lean-forward="true" selection-start-line="300" selection-start-column="82" selection-end-line="300" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestSectionProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/RestSectionProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServicesNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServicesNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#672#673#0" expanded="true" />
-                <element signature="e#713#714#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="org.seedstack.intellij.navigator.NavigatorSectionProvider" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourceNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourceNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-              <folding>
-                <element signature="e#945#946#0" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnnotatedInterfaceNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="21" column="49" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,20 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>YAML</find>
-      <find>Manipul</find>
-      <find>getMani</find>
-      <find>getEncodeRepl</find>
-      <find>SeedStack.NavigatorActionsToolbar</find>
-      <find>TreeState</find>
-      <find>getPre</find>
-      <find>project</find>
-      <find>getStructure</find>
-      <find>treeBuilder</find>
-      <find>root</find>
-      <find>getVisi</find>
-      <find>DisplayKind</find>
-      <find>RunBuild</find>
       <find>setIcon</find>
       <find>search</find>
       <find>getNavig</find>
@@ -194,6 +155,20 @@
       <find>structure</find>
       <find>compareT</find>
       <find>equals</find>
+      <find>PsiTreeAnyChangeAbstractAdapter</find>
+      <find>dep</find>
+      <find>y</find>
+      <find>ya</find>
+      <find>yaml</find>
+      <find>yaml.</find>
+      <find>yaml.j</find>
+      <find>yaml.ja</find>
+      <find>surefire</find>
+      <find>yaml.jar</find>
+      <find>A</find>
+      <find>Area</find>
+      <find>AreaI</find>
+      <find>AreaIn</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -201,6 +176,8 @@
     <dirStrings>
       <dir>C:\Users\u083051\Projects\seedstack\intellij-plugin\src\org\seedstack\intellij\config\psi\impl</dir>
       <dir>C:\Users\u083051\Projects\seedstack\intellij-plugin\src\org\seedstack\intellij\config\completion</dir>
+      <dir>C:\Users\u083051\Projects\seedstack\intellij-plugin</dir>
+      <dir>C:\Users\u083051\Projects\seedstack\intellij-plugin\.idea</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -214,16 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/tools/ConfigFileNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/RunBuildAction.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/RunToolAction.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/RunToolAction.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/OpenConfigFileAction.java" />
-        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/SeedStackTool.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/config/ConfigurationNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ConfigurationNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsSectionProvider.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/AggregatesNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/infrastructure/InfrastructureNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessSectionProvider.java" />
@@ -233,12 +200,7 @@
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServiceNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ImplementationNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/util/NavigatorUtil.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigator.java" />
-        <option value="$PROJECT_DIR$/test/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java" />
@@ -255,16 +217,31 @@
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/GenericInterfaceNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServicesNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PoliciesNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PolicyNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java" />
-        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/InterfaceNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/config/ConfigFileNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ConfigFileNode.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourceNode.java" />
         <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourcesNode.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/PsiTreeAnyChangeAbstractAdapter.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigator.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackNavigatorState.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/InterfaceNode.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java" />
+        <option value="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java" />
+        <option value="$PROJECT_DIR$/test/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java" />
+        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/org/seedstack/intellij/config/util/MacroResolverTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackGroupNode.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/assembly.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -281,13 +258,60 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="MavenProjectNavigator">
-    <treeState />
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="seedstack-intellij-plugin" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="seedstack-intellij-plugin" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="seedstack-intellij-plugin" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1173" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -307,6 +331,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,299 +340,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; IntelliJ IDEA IU-171.4249.39 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; IntelliJ IDEA IU-171.4249.39 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database-openapi.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; IntelliJ IDEA IU-171.4249.39 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database-openapi.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navigator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navigator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navigator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navigator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seedstack-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,7 +348,6 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -651,11 +383,11 @@
       <recent name="org.seedstack.intellij.config.completion.value" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\main" />
+      <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\test\java" />
+      <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\main\java" />
       <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\org\seedstack\intellij\config\psi\impl" />
       <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\org\seedstack\intellij\config\psi" />
-      <recent name="C:\Users\u083051\Projects\seedstack\intellij-plugin\src\org\seedstack\intellij\config" />
-      <recent name="$PROJECT_DIR$/resources/META-INF/icons" />
-      <recent name="$PROJECT_DIR$/resources/org/seedstack/intellij" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest" />
@@ -688,33 +420,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Plugin.Plugin">
-    <configuration default="false" name="MacroResolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.seedstack.intellij.config.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="seedstack-intellij-plugin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.seedstack.intellij.config.util" />
-      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.config.util.MacroResolverTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Maven.seedstack-intellij-plugin [clean,install]">
     <configuration default="false" name="SeedStackGroupNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -741,19 +447,40 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SeedStackGroupNodeTest.initialChildren" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="All in seedstack-intellij-plugin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="seedstack-intellij-plugin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MacroResolverTest.resolveSimple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="org.seedstack.intellij.navigator.common.*" />
+          <option name="PATTERN" value="org.seedstack.intellij.config.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="seedstack-intellij-plugin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.seedstack.intellij.navigator" />
-      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.navigator.SeedStackGroupNodeTest" />
-      <option name="METHOD_NAME" value="initialChildren" />
+      <option name="PACKAGE_NAME" value="org.seedstack.intellij.config.util" />
+      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.config.util.MacroResolverTest" />
+      <option name="METHOD_NAME" value="resolveSimple" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -767,20 +494,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SeedStackGroupNodeTest.psiFileRemoved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MacroResolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="org.seedstack.intellij.navigator.common.*" />
+          <option name="PATTERN" value="org.seedstack.intellij.config.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="seedstack-intellij-plugin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.seedstack.intellij.navigator" />
-      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.navigator.SeedStackGroupNodeTest" />
-      <option name="METHOD_NAME" value="psiFileRemoved" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="org.seedstack.intellij.config.util" />
+      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.config.util.MacroResolverTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -793,30 +520,29 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SeedStackGroupNodeTest.psiFileAddedRemoved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.seedstack.intellij.navigator.common.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="seedstack-intellij-plugin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.seedstack.intellij.navigator" />
-      <option name="MAIN_CLASS_NAME" value="org.seedstack.intellij.navigator.SeedStackGroupNodeTest" />
-      <option name="METHOD_NAME" value="psiFileAddedRemoved" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+    <configuration default="false" name="seedstack-intellij-plugin [clean,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -847,6 +573,88 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
@@ -914,6 +722,12 @@
       <scope-kind value="ALL" />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -948,7 +762,26 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -957,6 +790,40 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -975,19 +842,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
     <configuration default="false" name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="seedstack-intellij-plugin" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -997,24 +851,27 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Plugin.Plugin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MacroResolverTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.initialChildren" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.psiFileRemoved" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.psiFileAddedRemoved" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in seedstack-intellij-plugin" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MacroResolverTest.resolveSimple" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MacroResolverTest" />
+      <item index="5" class="java.lang.String" itemvalue="Maven.seedstack-intellij-plugin [clean,install]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.psiFileAddedRemoved" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.psiFileRemoved" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest.initialChildren" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MacroResolverTest" />
+        <item index="0" class="java.lang.String" itemvalue="Maven.seedstack-intellij-plugin [clean,install]" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in seedstack-intellij-plugin" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MacroResolverTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MacroResolverTest.resolveSimple" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.SeedStackGroupNodeTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -1039,21 +896,22 @@
       <workItem from="1495791664555" duration="19462000" />
       <workItem from="1495904196512" duration="15456000" />
       <workItem from="1495981296244" duration="8466000" />
+      <workItem from="1496064262664" duration="4132000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SeedStackGroupNodeTest - 2017.05.28 at 15h 43m 34s.xml">
-      <configuration name="SeedStackGroupNodeTest" configurationId="JUnit" />
+    <history-entry file="All_in_seedstack-intellij-plugin - 2017.05.29 at 15h 25m 39s.xml">
+      <configuration name="All in seedstack-intellij-plugin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeedStackGroupNodeTest - 2017.05.28 at 15h 44m 37s.xml">
-      <configuration name="SeedStackGroupNodeTest" configurationId="JUnit" />
+    <history-entry file="All_in_seedstack-intellij-plugin - 2017.05.29 at 16h 06m 11s.xml">
+      <configuration name="All in seedstack-intellij-plugin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeedStackGroupNodeTest - 2017.05.28 at 15h 45m 24s.xml">
-      <configuration name="SeedStackGroupNodeTest" configurationId="JUnit" />
+    <history-entry file="MacroResolverTest - 2017.05.29 at 16h 02m 46s.xml">
+      <configuration name="MacroResolverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeedStackGroupNodeTest - 2017.05.28 at 15h 45m 34s.xml">
-      <configuration name="SeedStackGroupNodeTest" configurationId="JUnit" />
+    <history-entry file="MacroResolverTest_resolveSimple - 2017.05.29 at 16h 01m 40s.xml">
+      <configuration name="MacroResolverTest.resolveSimple" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SeedStackGroupNodeTest - 2017.05.28 at 15h 47m 44s.xml">
       <configuration name="SeedStackGroupNodeTest" configurationId="JUnit" />
@@ -1075,44 +933,43 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321665000" />
+    <option name="totallyTimeSpent" value="328344000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3691027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36877394" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747456" sideWeight="0.5042598" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2185501" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747456" sideWeight="0.49574015" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.49574015" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26677316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21801706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839963" sideWeight="0.4978701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.359852" sideWeight="0.49574015" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839963" sideWeight="0.4978701" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1146,175 +1003,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/util/containers/MultiMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="86" column="16" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/EntityNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/ValueObjectNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessSectionProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="e#404#405#0" expanded="false" />
-            <element signature="e#453#454#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregatesNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/AggregateNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="40" column="61" lean-forward="false" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
-          <folding>
-            <element signature="e#3285#3286#0" expanded="false" />
-            <element signature="e#3347#3348#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/BusinessNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackSimpleNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="96" column="32" lean-forward="false" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackGroupNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="63" lean-forward="false" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/icons.jar!/nodes/jsf/genericValue@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/tools/ToolsNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigurationNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/schema.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/schema@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/schemaRefresh.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/indexUniqueFun@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/indexCluster.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/goldKey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/rule.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/col.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/constant.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/fileGroup.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/objecType.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/DatabaseTools/lib/database-openapi.jar!/icons/routine.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1335,7 +1023,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/SeedStackIcons.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/SeedStackIcons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="21" column="62" lean-forward="true" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
@@ -1343,135 +1031,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/application/ApplicationServicesNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/DomainServicesNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="24" column="29" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="24" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/DomainNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/DomainNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="32" column="90" lean-forward="false" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PoliciesNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/PoliciesNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1176#1177#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/SeedStackStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="103" column="11" lean-forward="false" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/domain/PolicyNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/domain/PolicyNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding>
-            <element signature="e#389#390#0" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#514#515#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/InterfaceNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/config/ConfigFileNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/config/ConfigFileNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/services/org.seedstack.intellij.navigator.NavigatorSectionProvider">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/RestSectionProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/RestSectionProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServicesNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/ServicesNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/ServiceNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/ServiceNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/business/AnnotatedInterfaceNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="21" column="49" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/common/ClassNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/common/ClassNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1495,29 +1135,278 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/config/util/CoffigResolver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/util/CoffigResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="300" column="82" lean-forward="true" selection-start-line="300" selection-start-column="82" selection-end-line="300" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/ResourceNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/rest/ResourcesNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/openapi/components/PersistentStateComponent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/psi/PsiTreeChangeAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/PsiTreeAnyChangeAbstractAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigatorPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourceNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigatorState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state relative-caret-position="119">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
-            <element signature="e#945#946#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/seedstack/intellij/navigator/rest/ResourcesNode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/common/InterfaceNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        <state relative-caret-position="255">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1485#1486#0" expanded="false" />
+            <element signature="e#1530#1531#0" expanded="false" />
+            <element signature="e#1587#1588#0" expanded="false" />
+            <element signature="e#1628#1629#0" expanded="false" />
+            <element signature="e#2631#2632#0" expanded="false" />
+            <element signature="e#2678#2679#0" expanded="false" />
+            <element signature="e#2749#2750#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackNavigator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="60" column="12" lean-forward="false" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#7658#7659#0" expanded="false" />
+            <element signature="e#7685#7686#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/ui/treeStructure/CachingSimpleNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackSimpleNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="82" column="19" lean-forward="false" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+          <folding>
+            <element signature="e#1410#1411#0" expanded="false" />
+            <element signature="e#1461#1462#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+            <element signature="e#1757#1758#0" expanded="false" />
+            <element signature="e#2677#2678#0" expanded="false" />
+            <element signature="e#2723#2724#0" expanded="false" />
+            <element signature="e#6208#6209#0" expanded="false" />
+            <element signature="e#6245#6246#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seedstack-intellij-plugin.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="36" column="98" lean-forward="false" selection-start-line="36" selection-start-column="98" selection-end-line="36" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/config/yaml/CoffigYamlParserDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/seedstack/poms/parent-internal/3.0.1/parent-internal-3.0.1.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/psi/impl/source/PsiClassReferenceType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="117" column="13" lean-forward="false" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+          <folding>
+            <element signature="e#3483#3484#0" expanded="false" />
+            <element signature="e#3531#3532#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.6.1/assertj-core-3.6.1-sources.jar!/org/assertj/core/api/AssertionsForClassTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="438" column="47" lean-forward="false" selection-start-line="438" selection-start-column="47" selection-end-line="438" selection-end-column="47" />
+          <folding>
+            <element signature="e#13035#13036#0" expanded="false" />
+            <element signature="e#13078#13079#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/seedstack/intellij/config/util/MacroResolverTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/seedstack/intellij/navigator/SeedStackGroupNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="68" column="64" lean-forward="false" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/seedstack/intellij/navigator/SeedStackGroupNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="34">
+            <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="18" selection-end-column="12" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assembly.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="26" column="61" lean-forward="false" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="208" column="66" lean-forward="false" selection-start-line="208" selection-start-column="66" selection-end-line="208" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -1579,7 +1468,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1587,7 +1475,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>javassist-3.21.0-GA</last-edited>
+          <last-edited>Maven: org.objenesis:objenesis:2.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

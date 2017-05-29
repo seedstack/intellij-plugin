@@ -1,0 +1,93 @@
+<!--
+
+    Copyright (c) 2013-2016, The SeedStack authors <http://seedstack.org>
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+-->
+<idea-plugin>
+    <id>org.seedstack.intellij</id>
+    <name>SeedStack</name>
+    <version>1.0.0</version>
+    <vendor email="adrien.lauer@gmail.com" url="http://seedstack.org">seedstack.org</vendor>
+
+    <description><![CDATA[
+Intellij plugin for <a href="http://seedstack.org">SeedStack framework</a>.
+
+<p>Main features:</p>
+<ul>
+<li>Language support for SeedStack YAML configuration</li>
+<ul>
+    <li>Completion,</li>
+    <li>Java and macro references,</li>
+    <li>Rename and safe-delete refactoring,</li>
+    <li>Quick documentation of options,</li>
+    <li>Inspections,</li>
+    <li>Find usages,</li>
+    <li>Jump to configuration classes.</li>
+</ul>
+<li>SeedStack Navigator</li>
+<ul>
+    <li>Business domain structure,</li>
+    <li>Configuration files,</li>
+    <li>REST resources,</li>
+    <li>Tools.</li>
+</ul>
+</ul>
+]]></description>
+
+    <change-notes><![CDATA[
+      Initial version.
+    ]]>
+    </change-notes>
+
+    <idea-version since-build="145.0"/>
+
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>com.intellij.properties</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Global framework support -->
+        <framework.type implementation="org.seedstack.intellij.SeedStackFramework"/>
+
+        <!-- YAML config -->
+        <fileTypeFactory implementation="org.seedstack.intellij.config.yaml.CoffigYamlFileTypeFactory"/>
+        <lang.parserDefinition language="coffig/yaml"
+                               implementationClass="org.seedstack.intellij.config.yaml.CoffigYamlParserDefinition"/>
+        <lang.documentationProvider language="coffig/yaml"
+                                    implementationClass="org.seedstack.intellij.config.documentation.CoffigDocumentationProvider"/>
+        <codeInsight.lineMarkerProvider language="coffig/yaml"
+                                        implementationClass="org.seedstack.intellij.config.marker.CoffigLineMarkerProvider"/>
+        <lang.findUsagesProvider language="yaml"
+                                 implementationClass="org.seedstack.intellij.config.usage.CoffigFindUsagesProvider"/>
+        <completion.contributor language="yaml"
+                                implementationClass="org.seedstack.intellij.config.completion.CoffigCompletionContributor"/>
+        <lang.refactoringSupport language="yaml"
+                                 implementationClass="org.seedstack.intellij.config.refactor.CoffigRefactoringSupportProvider"/>
+        <annotator language="yaml" implementationClass="org.seedstack.intellij.config.annotator.CoffigYamlAnnotator"/>
+        <psi.referenceContributor language="yaml"
+                                  implementation="org.seedstack.intellij.config.reference.CoffigYamlReferenceContributor"/>
+        <lang.elementManipulator forClass="org.jetbrains.yaml.psi.impl.YAMLKeyValueImpl"
+                                 implementationClass="org.seedstack.intellij.config.refactor.CoffigYamlKeyValueManipulator"/>
+
+        <!-- For JAVA language -->
+        <psi.referenceContributor language="JAVA"
+                                  implementation="org.seedstack.intellij.config.reference.CoffigJavaReferenceContributor"/>
+        <annotator language="JAVA" implementationClass="org.seedstack.intellij.config.annotator.CoffigJavaAnnotator"/>
+    </extensions>
+
+    <project-components>
+        <component>
+            <implementation-class>org.seedstack.intellij.navigator.SeedStackNavigator</implementation-class>
+        </component>
+    </project-components>
+
+    <actions>
+        <group id="SeedStack.NavigatorActionsToolbar">
+
+        </group>
+    </actions>
+</idea-plugin>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2013-2016, The SeedStack authors <http://seedstack.org>
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.seedstack.poms</groupId>
+        <artifactId>parent-internal</artifactId>
+        <version>3.0.1</version>
+    </parent>
+
+    <groupId>org.seedstack.intellij</groupId>
+    <artifactId>seedstack-intellij-plugin</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <idea.ic.version>2016.1.4</idea.ic.version>
+        <idea.ic.source>ideaIC-${idea.ic.version}.tar.gz</idea.ic.source>
+        <idea.ic.dir>${project.build.directory}/idea-IC</idea.ic.dir>
+        <ij.plugin>true</ij.plugin>
+    </properties>
+
+    <build>
+        <finalName>seedstack-intellij-plugin</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>download-files</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- Download IDEA sources which are required to build the plugin-->
+                                <!--<echo message="Downloading ${idea.ic.source} to ${project.build.directory}"/>-->
+                                <!--<get src="https://download-cf.jetbrains.com/idea/${idea.ic.source}"-->
+                                <!--dest="${project.build.directory}"-->
+                                <!--verbose="false"-->
+                                <!--usetimestamp="true"/>-->
+                                <!-- Below is for local testing without downloading -->
+                                <copy file="C:\Users\u083051\Downloads\${idea.ic.source}"
+                                      tofile="${project.build.directory}/${idea.ic.source}"
+                                      verbose="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <target>
+                                <echo message="unpacking ${idea.ic.source}"/>
+                                <untar compression="gzip" src="${project.build.directory}/${idea.ic.source}"
+                                       dest="${project.build.directory}">
+                                    <patternset>
+                                        <include name="*/lib/*.jar"/>
+                                        <include name="*/plugins/yaml/lib/yaml.jar"/>
+                                        <include name="*/plugins/properties/lib/properties.jar"/>
+                                    </patternset>
+                                </untar>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>move</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <target>
+                                <path id="idea_name">
+                                    <dirset dir="${project.build.directory}">
+                                        <include name="idea-IC-*"/>
+                                    </dirset>
+                                </path>
+                                <property name="idea.ic.fullname" refid="idea_name"/>
+                                <echo message="moving libraries to ${project.build.directory}/extlib"/>
+                                <move todir="${project.build.directory}/extlib" flatten="true">
+                                    <fileset dir="${idea.ic.fullname}">
+                                        <include name="lib/*.jar"/>
+                                        <include name="plugins/yaml/lib/yaml.jar"/>
+                                        <include name="plugins/properties/lib/properties.jar"/>
+                                    </fileset>
+                                </move>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.sun</groupId>
+                        <artifactId>tools</artifactId>
+                        <version>1.8</version>
+                        <scope>system</scope>
+                        <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/lib/</outputDirectory>
+                    <overWriteReleases>false</overWriteReleases>
+                    <overWriteSnapshots>false</overWriteSnapshots>
+                    <overWriteIfNewer>true</overWriteIfNewer>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly everything</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Main dependency on SDK -->
+        <dependency>
+            <groupId>com.jetbrains.intellij.annotations</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/annotations.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.openapi</groupId>
+            <artifactId>openapi</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/openapi.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.util</groupId>
+            <artifactId>util</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/util.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.idea</groupId>
+            <artifactId>idea</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/idea.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.extensions</groupId>
+            <artifactId>extensions</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/extensions.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/jdom.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/guava-17.0.jar</systemPath>
+        </dependency>
+
+        <!-- Required plugins -->
+        <dependency>
+            <groupId>com.jetbrains.intellij.plugins</groupId>
+            <artifactId>yaml-intellij-plugin</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/yaml.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.plugins</groupId>
+            <artifactId>properties-intellij-plugin</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/properties.jar</systemPath>
+        </dependency>
+
+        <!-- TEST -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.picocontainer</groupId>
+            <artifactId>picocontainer</artifactId>
+            <version>${idea.ic.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.build.directory}/extlib/picocontainer.jar</systemPath>
+        </dependency>
+    </dependencies>
+</project>
