@@ -40,7 +40,7 @@
                 <version>1.7</version>
                 <executions>
                     <execution>
-                        <id>download-files</id>
+                        <id>default-cli</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>run</goal>
@@ -50,21 +50,14 @@
                                 <!-- Download IDEA sources which are required to build the plugin-->
                                 <echo message="Downloading ${idea.ic.source} to ${project.build.directory}"/>
                                 <get src="https://download-cf.jetbrains.com/idea/${idea.ic.source}"
-                                dest="${project.build.directory}"
-                                verbose="false"
-                                usetimestamp="true"/>
+                                     dest="${project.build.directory}"
+                                     verbose="false"
+                                     usetimestamp="true"/>
                                 <!-- Below is for local testing without downloading -->
                                 <!--<copy file="C:\Users\u083051\Downloads\${idea.ic.source}"-->
-                                      <!--tofile="${project.build.directory}/${idea.ic.source}"-->
-                                      <!--verbose="true"/>-->
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <target>
+                                <!--tofile="${project.build.directory}/${idea.ic.source}"-->
+                                <!--verbose="true"/>-->
+
                                 <echo message="unpacking ${idea.ic.source}"/>
                                 <untar compression="gzip" src="${project.build.directory}/${idea.ic.source}"
                                        dest="${project.build.directory}">
@@ -74,17 +67,7 @@
                                         <include name="*/plugins/properties/lib/properties.jar"/>
                                     </patternset>
                                 </untar>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>move</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <target>
+
                                 <path id="idea_name">
                                     <dirset dir="${project.build.directory}">
                                         <include name="idea-IC-*"/>
@@ -101,9 +84,6 @@
                                 </move>
                             </target>
                         </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
                     </execution>
                 </executions>
                 <dependencies>
@@ -158,99 +138,104 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <!-- Main dependency on SDK -->
-        <dependency>
-            <groupId>com.jetbrains.intellij.annotations</groupId>
-            <artifactId>annotations</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/annotations.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.openapi</groupId>
-            <artifactId>openapi</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/openapi.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.util</groupId>
-            <artifactId>util</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/util.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.idea</groupId>
-            <artifactId>idea</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/idea.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.extensions</groupId>
-            <artifactId>extensions</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/extensions.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.jdom</groupId>
-            <artifactId>jdom</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/jdom.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/guava-17.0.jar</systemPath>
-        </dependency>
+    <profiles>
+        <profile>
+            <id>deps</id>
+            <dependencies>
+                <!-- Main dependency on SDK -->
+                <dependency>
+                    <groupId>com.jetbrains.intellij.annotations</groupId>
+                    <artifactId>annotations</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/annotations.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.openapi</groupId>
+                    <artifactId>openapi</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/openapi.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.util</groupId>
+                    <artifactId>util</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/util.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.idea</groupId>
+                    <artifactId>idea</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/idea.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.extensions</groupId>
+                    <artifactId>extensions</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/extensions.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.jdom</groupId>
+                    <artifactId>jdom</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/jdom.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.guava</groupId>
+                    <artifactId>guava</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/guava-17.0.jar</systemPath>
+                </dependency>
 
-        <!-- Required plugins -->
-        <dependency>
-            <groupId>com.jetbrains.intellij.plugins</groupId>
-            <artifactId>yaml-intellij-plugin</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/yaml.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.plugins</groupId>
-            <artifactId>properties-intellij-plugin</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/properties.jar</systemPath>
-        </dependency>
+                <!-- Required plugins -->
+                <dependency>
+                    <groupId>com.jetbrains.intellij.plugins</groupId>
+                    <artifactId>yaml-intellij-plugin</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/yaml.jar</systemPath>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.plugins</groupId>
+                    <artifactId>properties-intellij-plugin</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/properties.jar</systemPath>
+                </dependency>
 
-        <!-- TEST -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.jetbrains.intellij.picocontainer</groupId>
-            <artifactId>picocontainer</artifactId>
-            <version>${idea.ic.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.build.directory}/extlib/picocontainer.jar</systemPath>
-        </dependency>
-    </dependencies>
+                <!-- TEST -->
+                <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                    <version>${junit.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.assertj</groupId>
+                    <artifactId>assertj-core</artifactId>
+                    <version>${assertj.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-core</artifactId>
+                    <version>${mockito.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.jetbrains.intellij.picocontainer</groupId>
+                    <artifactId>picocontainer</artifactId>
+                    <version>${idea.ic.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${project.build.directory}/extlib/picocontainer.jar</systemPath>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>
