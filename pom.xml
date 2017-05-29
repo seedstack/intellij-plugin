@@ -20,7 +20,7 @@
 
     <groupId>org.seedstack.intellij</groupId>
     <artifactId>seedstack-intellij-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,6 +28,7 @@
         <idea.ic.source>ideaIC-${idea.ic.version}.tar.gz</idea.ic.source>
         <idea.ic.dir>${project.build.directory}/idea-IC</idea.ic.dir>
         <ij.plugin>true</ij.plugin>
+        <bintray.package>seedstack-intellij-plugin</bintray.package>
     </properties>
 
     <build>
@@ -47,15 +48,15 @@
                         <configuration>
                             <target>
                                 <!-- Download IDEA sources which are required to build the plugin-->
-                                <!--<echo message="Downloading ${idea.ic.source} to ${project.build.directory}"/>-->
-                                <!--<get src="https://download-cf.jetbrains.com/idea/${idea.ic.source}"-->
-                                <!--dest="${project.build.directory}"-->
-                                <!--verbose="false"-->
-                                <!--usetimestamp="true"/>-->
+                                <echo message="Downloading ${idea.ic.source} to ${project.build.directory}"/>
+                                <get src="https://download-cf.jetbrains.com/idea/${idea.ic.source}"
+                                dest="${project.build.directory}"
+                                verbose="false"
+                                usetimestamp="true"/>
                                 <!-- Below is for local testing without downloading -->
-                                <copy file="C:\Users\u083051\Downloads\${idea.ic.source}"
-                                      tofile="${project.build.directory}/${idea.ic.source}"
-                                      verbose="true"/>
+                                <!--<copy file="C:\Users\u083051\Downloads\${idea.ic.source}"-->
+                                      <!--tofile="${project.build.directory}/${idea.ic.source}"-->
+                                      <!--verbose="true"/>-->
                             </target>
                         </configuration>
                     </execution>
