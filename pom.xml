@@ -49,8 +49,9 @@
                             <target>
                                 <!-- Download IDEA sources which are required to build the plugin-->
                                 <echo message="Downloading ${idea.ic.source} to ${project.build.directory}"/>
+                                <mkdir dir="${project.basedir}/idea"/>
                                 <get src="https://download-cf.jetbrains.com/idea/${idea.ic.source}"
-                                     dest="${project.build.directory}"
+                                     dest="${project.basedir}/idea/${idea.ic.source}"
                                      verbose="false"
                                      usetimestamp="true"/>
                                 <!-- Below is for local testing without downloading -->
@@ -59,7 +60,7 @@
                                 <!--verbose="true"/>-->
 
                                 <echo message="unpacking ${idea.ic.source}"/>
-                                <untar compression="gzip" src="${project.build.directory}/${idea.ic.source}"
+                                <untar compression="gzip" src="${project.basedir}/idea/${idea.ic.source}"
                                        dest="${project.build.directory}">
                                     <patternset>
                                         <include name="*/lib/*.jar"/>
@@ -86,15 +87,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.8</version>
-                        <scope>system</scope>
-                        <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -136,6 +128,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 
     <profiles>

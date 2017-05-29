@@ -7,6 +7,9 @@
 .idea/
 *.iml
 
+# Idea download
+idea/
+
 # Maven
 target/
 pom.xml.tag
