@@ -171,7 +171,7 @@ public class SeedStackNavigator extends AbstractProjectComponent implements
             r.run();
 
             if (shouldCreate && this.state.treeState != null) {
-                TreeState treeState = new TreeState();
+                TreeState treeState = TreeState.createOn(this.tree);
                 try {
                     treeState.readExternal(this.state.treeState);
                     treeState.applyTo(this.tree);

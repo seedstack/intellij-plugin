@@ -21,14 +21,12 @@ import org.seedstack.intellij.SeedStackIcons;
 
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ServiceLoader;
 
 class SeedStackStructure extends SimpleTreeStructure {
-    private static final URL ERROR_ICON_URL = SeedStackStructure.class.getResource("/general/error.png");
     static final Comparator<SeedStackSimpleNode> NODE_COMPARATOR = (o1, o2) -> StringUtil.compare(o1.getName(), o2.getName(), true);
     private final Project project;
     private final RootNode rootNode;

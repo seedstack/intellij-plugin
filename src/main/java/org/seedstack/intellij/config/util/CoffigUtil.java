@@ -15,9 +15,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.PsiMember;
 import com.intellij.psi.PsiMethodCallExpression;
-import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.util.indexing.FileBasedIndex;
+import com.intellij.util.indexing.ID;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.yaml.psi.YAMLDocument;
 import org.jetbrains.yaml.psi.YAMLFile;
@@ -99,7 +99,7 @@ public final class CoffigUtil {
     @NotNull
     public static Collection<VirtualFile> findCoffigFiles(Project project) {
         return FileBasedIndex.getInstance().getContainingFiles(
-                FileTypeIndex.NAME,
+                ID.create("filetypes"),
                 CoffigYamlFileType.INSTANCE,
                 GlobalSearchScope.allScope(project));
     }

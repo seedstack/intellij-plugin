@@ -12,6 +12,7 @@ import com.intellij.openapi.util.Iconable;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiEnumConstant;
 import com.intellij.psi.PsiType;
+import com.intellij.psi.impl.source.PsiClassReferenceType;
 import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
 import java.util.Arrays;
@@ -20,17 +21,25 @@ import java.util.stream.Stream;
 
 public class EnumCompletionResolver implements ValueCompletionResolver {
     @Override
-    public boolean canHandle(PsiClass rawType) {
-        return rawType.isEnum();
+    public boolean canHandle(PsiType psiType) {
+        if (psiType instanceof PsiClassReferenceType) {
+            PsiClass resolved = ((PsiClassReferenceType) psiType).resolve();
+            return resolved != null && resolved.isEnum();
+        }
+        return false;
     }
 
     @Override
-    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiClass rawType, PsiType[] parameterTypes) {
-        return Arrays.stream(rawType.getChildren())
-                .filter(child -> child instanceof PsiEnumConstant)
-                .map(child -> buildEnumLookup((PsiEnumConstant) child))
-                .filter(Optional::isPresent)
-                .map(Optional::get);
+    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiType psiType) {
+        PsiClass resolved = ((PsiClassReferenceType) psiType).resolve();
+        if (resolved != null) {
+            return Arrays.stream(resolved.getChildren())
+                    .filter(child -> child instanceof PsiEnumConstant)
+                    .map(child -> buildEnumLookup((PsiEnumConstant) child))
+                    .filter(Optional::isPresent)
+                    .map(Optional::get);
+        }
+        return Stream.empty();
     }
 
     private Optional<LookupElementBuilder> buildEnumLookup(PsiEnumConstant psiEnumConstant) {

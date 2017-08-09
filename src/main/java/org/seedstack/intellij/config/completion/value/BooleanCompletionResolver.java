@@ -8,7 +8,7 @@
 package org.seedstack.intellij.config.completion.value;
 
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
-import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiPrimitiveType;
 import com.intellij.psi.PsiType;
 import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
@@ -20,12 +20,12 @@ public class BooleanCompletionResolver implements ValueCompletionResolver {
     private static final String DISABLED = "disabled";
 
     @Override
-    public boolean canHandle(PsiClass rawType) {
-        return JAVA_BOOLEAN_CLASS.equals(rawType.getQualifiedName());
+    public boolean canHandle(PsiType psiType) {
+        return psiType instanceof PsiPrimitiveType && JAVA_BOOLEAN_CLASS.equals(((PsiPrimitiveType) psiType).getBoxedTypeName());
     }
 
     @Override
-    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiClass rawType, PsiType[] parameterTypes) {
+    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiType psiType) {
         if (ENABLED.equalsIgnoreCase(propertyName) || DISABLED.equalsIgnoreCase(propertyName)) {
             return Stream.of("yes", "no").map(LookupElementBuilder::create);
         }

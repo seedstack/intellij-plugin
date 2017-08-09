@@ -9,17 +9,12 @@ package org.seedstack.intellij.config.completion;
 
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiClassType;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiPrimitiveType;
 import com.intellij.psi.PsiType;
 import com.intellij.psi.PsiVariable;
-import com.intellij.psi.impl.source.PsiClassReferenceType;
 import org.seedstack.intellij.config.util.CoffigResolver;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -45,25 +40,9 @@ class ValueCompletionProvider implements CompletionResolver {
     }
 
     private Stream<LookupElementBuilder> buildStream(String propertyName, PsiElement position, PsiType psiType) {
-        Optional<PsiClass> rawType;
-        PsiType[] parameterTypes;
-        if (psiType instanceof PsiClassReferenceType) {
-            rawType = Optional.ofNullable(((PsiClassReferenceType) psiType).resolve());
-            parameterTypes = ((PsiClassReferenceType) psiType).getParameters();
-        } else if (psiType instanceof PsiPrimitiveType) {
-            rawType = Optional.ofNullable(position.getContext())
-                    .map(((PsiPrimitiveType) psiType)::getBoxedType)
-                    .map(PsiClassType::resolve);
-            parameterTypes = new PsiType[0];
-        } else {
-            rawType = Optional.empty();
-            parameterTypes = new PsiType[0];
-        }
-        if (rawType.isPresent()) {
-            for (ValueCompletionResolver completionResolver : completionResolvers) {
-                if (completionResolver.canHandle(rawType.get())) {
-                    return completionResolver.resolveCompletions(propertyName, rawType.get(), parameterTypes);
-                }
+        for (ValueCompletionResolver completionResolver : completionResolvers) {
+            if (completionResolver.canHandle(psiType)) {
+                return completionResolver.resolveCompletions(propertyName, psiType);
             }
         }
         return Stream.empty();

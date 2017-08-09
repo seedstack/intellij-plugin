@@ -138,13 +138,14 @@ public abstract class SeedStackSimpleNode extends CachingSimpleNode {
     protected void setNameAndTooltip(String name, @Nullable String tooltip, @Nullable String hint) {
         setNameAndTooltip(name, tooltip, getPlainAttributes());
         if (structure.showDescriptions() && !StringUtil.isEmptyOrSpaces(hint)) {
-            addColoredFragment(" (" + hint + ")", SimpleTextAttributes.GRAY_ATTRIBUTES);
+            getTemplatePresentation().clearText();
+            getTemplatePresentation().addText(new ColoredFragment(" (" + hint + ")", SimpleTextAttributes.GRAY_ATTRIBUTES));
         }
     }
 
     protected void setNameAndTooltip(String name, @Nullable String tooltip, SimpleTextAttributes attributes) {
-        clearColoredText();
-        addColoredFragment(name, prepareAttributes(attributes));
+        getTemplatePresentation().clearText();
+        getTemplatePresentation().addText(new ColoredFragment(name, prepareAttributes(attributes)));
         getTemplatePresentation().setTooltip(tooltip);
     }
 

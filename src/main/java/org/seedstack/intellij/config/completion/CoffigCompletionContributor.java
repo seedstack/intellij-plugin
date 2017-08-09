@@ -53,7 +53,6 @@ public class CoffigCompletionContributor extends CompletionContributor {
         protected void addCompletions(@NotNull CompletionParameters completionParameters, ProcessingContext processingContext, @NotNull CompletionResultSet completionResultSet) {
             Stream<LookupElementBuilder> stream = null;
             PsiElement position = completionParameters.getPosition();
-            PsiElement originalPosition = completionParameters.getOriginalPosition();
 
             // No completion on ordinary YAML files
             if (!isConfigFile(position)) {
@@ -68,20 +67,20 @@ public class CoffigCompletionContributor extends CompletionContributor {
                         );
             }
             // Completion for YAML values
-            else if (isValue(originalPosition)) {
-                YAMLScalar yamlScalar = (YAMLScalar) originalPosition.getContext();
+            else if (isValue(position)) {
+                YAMLScalar yamlScalar = (YAMLScalar) position.getContext();
                 if (yamlScalar != null) {
-                    int cursorOffset = calculateCursorOffset(completionParameters, originalPosition, yamlScalar);
+                    int cursorOffset = calculateCursorOffset(completionParameters, position, yamlScalar);
                     List<MacroResolver.Match> matches = new MacroResolver().resolve(yamlScalar.getTextValue().substring(0, cursorOffset));
                     if (!matches.isEmpty()) {
                         MacroResolver.Match closestMatch = findClosestMatch(matches, cursorOffset);
                         if (closestMatch != null) {
                             MacroInfo macroInfo = resolveMacroInfo(closestMatch, completionResultSet, cursorOffset);
                             completionResultSet = macroInfo.completionResultSet;
-                            stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, originalPosition);
+                            stream = KEY_COMPLETION_PROVIDER.resolve(macroInfo.path, position);
                         }
                     } else {
-                        stream = VALUE_COMPLETION_PROVIDER.resolve(resolvePath(originalPosition), originalPosition);
+                        stream = VALUE_COMPLETION_PROVIDER.resolve(resolvePath(position), position);
                     }
                 }
             }

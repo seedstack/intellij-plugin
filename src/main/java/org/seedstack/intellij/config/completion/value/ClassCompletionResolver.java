@@ -13,10 +13,10 @@ import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiClassType;
 import com.intellij.psi.PsiType;
 import com.intellij.psi.PsiWildcardType;
+import com.intellij.psi.impl.source.PsiClassReferenceType;
 import com.intellij.psi.search.searches.ClassInheritorsSearch;
 import org.seedstack.intellij.config.completion.ValueCompletionResolver;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -26,22 +26,27 @@ public class ClassCompletionResolver implements ValueCompletionResolver {
     private static final String JAVA_LANG_CLASS = Class.class.getName();
 
     @Override
-    public boolean canHandle(PsiClass rawType) {
-        return JAVA_LANG_CLASS.equals(rawType.getQualifiedName());
+    public boolean canHandle(PsiType psiType) {
+        if (psiType instanceof PsiClassReferenceType) {
+            PsiClass resolved = ((PsiClassReferenceType) psiType).resolve();
+            if (resolved != null && JAVA_LANG_CLASS.equals(resolved.getQualifiedName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
-    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiClass rawType, PsiType[] parameterTypes) {
+    public Stream<LookupElementBuilder> resolveCompletions(String propertyName, PsiType psiType) {
+        PsiType[] parameters = ((PsiClassReferenceType) psiType).getParameters();
         Stream<PsiClass> psiClassStream = null;
-        if (parameterTypes.length == 1 && parameterTypes[0] instanceof PsiWildcardType) {
-            PsiWildcardType psiWildcardType = ((PsiWildcardType) parameterTypes[0]);
+        if (parameters.length == 1 && parameters[0] instanceof PsiWildcardType) {
+            PsiWildcardType psiWildcardType = ((PsiWildcardType) parameters[0]);
             if (psiWildcardType.isBounded()) {
                 if (psiWildcardType.isExtends()) {
-                    psiClassStream = classesExtending((PsiClassType) psiWildcardType.getExtendsBound()).stream();
+                    psiClassStream = subClasses((PsiClassType) psiWildcardType.getExtendsBound()).stream();
                 } else if (psiWildcardType.isSuper()) {
-                    psiClassStream = Arrays.stream(psiWildcardType.getSuperBound().getSuperTypes())
-                            .map(psiType -> (PsiClassType) psiType)
-                            .map(PsiClassType::resolve);
+                    psiClassStream = superClasses((PsiClassType) psiWildcardType.getSuperBound()).stream();
                 }
             }
         }
@@ -52,7 +57,18 @@ public class ClassCompletionResolver implements ValueCompletionResolver {
         }
     }
 
-    private Set<PsiClass> classesExtending(PsiClassType psiClassReferenceType) {
+    private Set<PsiClass> superClasses(PsiClassType psiClassReferenceType) {
+        Set<PsiClass> superClasses = new HashSet<>();
+        for (PsiType psiType : psiClassReferenceType.getSuperTypes()) {
+            PsiClass resolved = ((PsiClassType) psiType).resolve();
+            if (resolved != null) {
+                superClasses.add(resolved);
+            }
+        }
+        return superClasses;
+    }
+
+    private Set<PsiClass> subClasses(PsiClassType psiClassReferenceType) {
         Set<PsiClass> results = new HashSet<>();
         Optional.of(psiClassReferenceType)
                 .map(PsiClassType::resolve)
