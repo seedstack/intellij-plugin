@@ -20,3 +20,5 @@ Main features:
     * Configuration files,
     * REST resources,
     * Tools.
+
+Installation: see [SeedStack website](http://seedstack.org/posts/intellij-plugin-released/#download-and-installation).
